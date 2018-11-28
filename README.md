@@ -5,8 +5,9 @@
 <ul class="toc_list">
   <li><a href="#First_Point_Header">1 Overview and directory layout</a></li>
 <li><a href="#Second_Point_Header">2 Gathering materials and directory layout</a></li>
-	<ol><li><a href="#sickle">Trimming using sickle</a></li>
-		<li><a href="#fastqc">Quality control statistics using fastqc and multiqc</a></li></ol>
+	<li><a href="#Third_Point_Header">3 Quality control using sickle</a></li>
+	<ol><li><a href="#combining">Combining multiple runs per sample correctly</a></li>
+		<li><a href="#trimming">Trimming reads with sickle</a></li></ol>
 </ul>
  
  <h2 id="First_Point_Header>Overview and directory layout</h2>
@@ -142,8 +143,141 @@ awk 'NR==FNR{array[$1];next}!($1 in array){print $1}' unique_identifiers unique_
 
 Great. Our `gff3` and `fasta` match.
 
- 
-
-
-
 The sampled sequences were also provided by Julianna. The paired-end sequences are located at `/UCHC/PublicShare/jules/paired_end_fastas/` and the single-end sequences are located at `/UCHC/PublicShare/jules/single_end_fastas`.
+
+<h2 id="Third_Point_eader">Quality control using sickle</h2>
+<h2 id="combining">Concatenating mulitple runs per sample correctly</h2>
+Because there are multiple runs per sample, the paired-end and single-end samples had to be combined appropriately. The samples were combined with the following code:
+
+cd paired_end_fastas
+array=( $(ls .) )
+i=0
+while [ $i -lt $((${#array[@]}-6)) ];
+do export BASENAME=$(basename $array[$i]});
+echo ${array[$i]} ${array[$i+2]} ${array[$i+4]} ${array[$i+6]};
+cat ${array[$i]} ${array[$i+2]} ${array[$i+4]} ${array[$i+6]} >> ../combined_paired_end_fastas/$BASENAME;
+i=$(($i+8));
+done;
+
+<strong>I10-RPE1_S3_L001_R1_001.fastq.gz        I10-RPE1_S3_L002_R1_001.fastq.gz        I10-RPE1_S3_L003_R1_001.fastq.gz        I10-RPE1_S3_L004_R1_001.fastq.gz
+I11-RPE2_S8_L001_R1_001.fastq.gz        I11-RPE2_S8_L002_R1_001.fastq.gz        I11-RPE2_S8_L003_R1_001.fastq.gz        I11-RPE2_S8_L004_R1_001.fastq.gz
+I12-RPE3_S11_L001_R1_001.fastq.gz        I12-RPE3_S11_L002_R1_001.fastq.gz        I12-RPE3_S11_L003_R1_001.fastq.gz        I12-RPE3_S11_L004_R1_001.fastq.gz
+I1-RE-8_S12_L001_R1_001.fastq.gz        I1-RE-8_S12_L002_R1_001.fastq.gz        I1-RE-8_S12_L003_R1_001.fastq.gz        I1-RE-8_S12_L004_R1_001.fastq.gz
+I2-RE-10_S7_L001_R1_001.fastq.gz        I2-RE-10_S7_L002_R1_001.fastq.gz        I2-RE-10_S7_L003_R1_001.fastq.gz        I2-RE-10_S7_L004_R1_001.fastq.gz
+I3-RE-12_S9_L001_R1_001.fastq.gz        I3-RE-12_S9_L002_R1_001.fastq.gz        I3-RE-12_S9_L003_R1_001.fastq.gz        I3-RE-12_S9_L004_R1_001.fastq.gz
+I4-shA-5_S2_L001_R1_001.fastq.gz        I4-shA-5_S2_L002_R1_001.fastq.gz        I4-shA-5_S2_L003_R1_001.fastq.gz        I4-shA-5_S2_L004_R1_001.fastq.gz
+I5-shD-2_S10_L001_R1_001.fastq.gz        I5-shD-2_S10_L002_R1_001.fastq.gz        I5-shD-2_S10_L003_R1_001.fastq.gz        I5-shD-2_S10_L004_R1_001.fastq.gz
+I6-shE-3_S6_L001_R1_001.fastq.gz        I6-shE-3_S6_L002_R1_001.fastq.gz        I6-shE-3_S6_L003_R1_001.fastq.gz        I6-shE-3_S6_L004_R1_001.fastq.gz
+I7-miA-1_S5_L001_R1_001.fastq.gz        I7-miA-1_S5_L002_R1_001.fastq.gz        I7-miA-1_S5_L003_R1_001.fastq.gz        I7-miA-1_S5_L004_R1_001.fastq.gz
+I8-miC-1_S1_L001_R1_001.fastq.gz        I8-miC-1_S1_L002_R1_001.fastq.gz        I8-miC-1_S1_L003_R1_001.fastq.gz        I8-miC-1_S1_L004_R1_001.fastq.gz
+I9-miD-1_S4_L001_R1_001.fastq.gz        I9-miD-1_S4_L002_R1_001.fastq.gz        I9-miD-1_S4_L003_R1_001.fastq.gz        I9-miD-1_S4_L004_R1_001.fastq.gz
+</strong>
+
+array=( $(ls .) )
+i=1
+while [ $i -lt $((${#array[@]}-6)) ];
+do export BASENAME=$(basename $array[$i]});
+echo ${array[$i]} ${array[$i+2]} ${array[$i+4]} ${array[$i+6]};
+cat ${array[$i]} ${array[$i+2]} ${array[$i+4]} ${array[$i+6]} >> ../combined_paired_end_fastas/$BASENAME;
+i=$(($i+8));
+done;
+<strong>I10-RPE1_S3_L001_R2_001.fastq.gz        I10-RPE1_S3_L002_R2_001.fastq.gz        I10-RPE1_S3_L003_R2_001.fastq.gz        I10-RPE1_S3_L004_R2_001.fastq.gz
+I11-RPE2_S8_L001_R2_001.fastq.gz        I11-RPE2_S8_L002_R2_001.fastq.gz        I11-RPE2_S8_L003_R2_001.fastq.gz        I11-RPE2_S8_L004_R2_001.fastq.gz
+I12-RPE3_S11_L001_R2_001.fastq.gz        I12-RPE3_S11_L002_R2_001.fastq.gz        I12-RPE3_S11_L003_R2_001.fastq.gz        I12-RPE3_S11_L004_R2_001.fastq.gz
+I1-RE-8_S12_L001_R2_001.fastq.gz        I1-RE-8_S12_L002_R2_001.fastq.gz        I1-RE-8_S12_L003_R2_001.fastq.gz        I1-RE-8_S12_L004_R2_001.fastq.gz
+I2-RE-10_S7_L001_R2_001.fastq.gz        I2-RE-10_S7_L002_R2_001.fastq.gz        I2-RE-10_S7_L003_R2_001.fastq.gz        I2-RE-10_S7_L004_R2_001.fastq.gz
+I3-RE-12_S9_L001_R2_001.fastq.gz        I3-RE-12_S9_L002_R2_001.fastq.gz        I3-RE-12_S9_L003_R2_001.fastq.gz        I3-RE-12_S9_L004_R2_001.fastq.gz
+I4-shA-5_S2_L001_R2_001.fastq.gz        I4-shA-5_S2_L002_R2_001.fastq.gz        I4-shA-5_S2_L003_R2_001.fastq.gz        I4-shA-5_S2_L004_R2_001.fastq.gz
+I5-shD-2_S10_L001_R2_001.fastq.gz        I5-shD-2_S10_L002_R2_001.fastq.gz        I5-shD-2_S10_L003_R2_001.fastq.gz        I5-shD-2_S10_L004_R2_001.fastq.gz
+I6-shE-3_S6_L001_R2_001.fastq.gz        I6-shE-3_S6_L002_R2_001.fastq.gz        I6-shE-3_S6_L003_R2_001.fastq.gz        I6-shE-3_S6_L004_R2_001.fastq.gz
+I7-miA-1_S5_L001_R2_001.fastq.gz        I7-miA-1_S5_L002_R2_001.fastq.gz        I7-miA-1_S5_L003_R2_001.fastq.gz        I7-miA-1_S5_L004_R2_001.fastq.gz
+I8-miC-1_S1_L001_R2_001.fastq.gz        I8-miC-1_S1_L002_R2_001.fastq.gz        I8-miC-1_S1_L003_R2_001.fastq.gz        I8-miC-1_S1_L004_R2_001.fastq.gz
+I9-miD-1_S4_L001_R2_001.fastq.gz        I9-miD-1_S4_L002_R2_001.fastq.gz        I9-miD-1_S4_L003_R2_001.fastq.gz        I9-miD-1_S4_L004_R2_001.fastq.gz
+</strong></pre>
+
+We see that thesee files have been processed correctly. Now for the single end fastas:
+<pre style="color: silver; background: black;">cd single_end_fastas
+array=( $(ls .) )
+i=0
+while [ $i -lt $((${#array[@]}-4)) ];
+do export BASENAME=$(basename $array[$i]});
+echo ${array[$i]} ${array[$i+1]} ${array[$i+2]} ${array[$i+3]};
+cat ${array[$i]} ${array[$i+1]} ${array[$i+2]} ${array[$i+3]} >> ../combined_single_end_fastas/$BASENAME;
+i=$(($i+4));
+done;
+<strong>DaudiAgo1KD_S2_L001_R1_001.fastq.gz        DaudiAgo1KD_S2_L002_R1_001.fastq.gz        DaudiAgo1KD_S2_L003_R1_001.fastq.gz        DaudiAgo1KD_S2_L004_R1_001.fastq.gz
+DaudiAgo2KD_S8_L001_R1_001.fastq.gz        DaudiAgo2KD_S8_L002_R1_001.fastq.gz        DaudiAgo2KD_S8_L003_R1_001.fastq.gz        DaudiAgo2KD_S8_L004_R1_001.fastq.gz
+DaudiAgo3KD_S1_L001_R1_001.fastq.gz        DaudiAgo3KD_S1_L002_R1_001.fastq.gz        DaudiAgo3KD_S1_L003_R1_001.fastq.gz        DaudiAgo3KD_S1_L004_R1_001.fastq.gz
+DaudiAgo4KD_S7_L001_R1_001.fastq.gz        DaudiAgo4KD_S7_L002_R1_001.fastq.gz        DaudiAgo4KD_S7_L003_R1_001.fastq.gz        DaudiAgo4KD_S7_L004_R1_001.fastq.gz
+DaudiDicerKD_S4_L001_R1_001.fastq.gz        DaudiDicerKD_S4_L002_R1_001.fastq.gz        DaudiDicerKD_S4_L003_R1_001.fastq.gz        DaudiDicerKD_S4_L004_R1_001.fastq.gz
+DaudiDroshaKD_S5_L001_R1_001.fastq.gz        DaudiDroshaKD_S5_L002_R1_001.fastq.gz        DaudiDroshaKD_S5_L003_R1_001.fastq.gz        DaudiDroshaKD_S5_L004_R1_001.fastq.gz
+DaudiLaKD_S6_L001_R1_001.fastq.gz        DaudiLaKD_S6_L002_R1_001.fastq.gz        DaudiLaKD_S6_L003_R1_001.fastq.gz        DaudiLaKD_S6_L004_R1_001.fastq.gz
+DaudiNoTxt_S3_L001_R1_001.fastq.gz        DaudiNoTxt_S3_L002_R1_001.fastq.gz        DaudiNoTxt_S3_L003_R1_001.fastq.gz        DaudiNoTxt_S3_L004_R1_001.fastq.gz
+I26-Hsa-DicerKD_S10_L001_R1_001.fastq.gz        I26-Hsa-DicerKD_S10_L002_R1_001.fastq.gz        I26-Hsa-DicerKD_S10_L003_R1_001.fastq.gz        I26-Hsa-DicerKD_S10_L004_R1_001.fastq.gz
+I27-Hsa-DroshaKD_S9_L001_R1_001.fastq.gz        I27-Hsa-DroshaKD_S9_L002_R1_001.fastq.gz        I27-Hsa-DroshaKD_S9_L003_R1_001.fastq.gz        I27-Hsa-DroshaKD_S9_L004_R1_001.fastq.gz
+I28-Hsa-Ago1KD_S6_L001_R1_001.fastq.gz        I28-Hsa-Ago1KD_S6_L002_R1_001.fastq.gz        I28-Hsa-Ago1KD_S6_L003_R1_001.fastq.gz        I28-Hsa-Ago1KD_S6_L004_R1_001.fastq.gz
+I29-Hsa-Ago2KD_S8_L001_R1_001.fastq.gz        I29-Hsa-Ago2KD_S8_L002_R1_001.fastq.gz        I29-Hsa-Ago2KD_S8_L003_R1_001.fastq.gz        I29-Hsa-Ago2KD_S8_L004_R1_001.fastq.gz
+I30-Hsa-Ago3KD_S5_L001_R1_001.fastq.gz        I30-Hsa-Ago3KD_S5_L002_R1_001.fastq.gz        I30-Hsa-Ago3KD_S5_L003_R1_001.fastq.gz        I30-Hsa-Ago3KD_S5_L004_R1_001.fastq.gz
+I31-Hsa-Ago4KD_S3_L001_R1_001.fastq.gz        I31-Hsa-Ago4KD_S3_L002_R1_001.fastq.gz        I31-Hsa-Ago4KD_S3_L003_R1_001.fastq.gz        I31-Hsa-Ago4KD_S3_L004_R1_001.fastq.gz
+I32-Hsa-LaSSB-KD_S7_L001_R1_001.fastq.gz        I32-Hsa-LaSSB-KD_S7_L002_R1_001.fastq.gz        I32-Hsa-LaSSB-KD_S7_L003_R1_001.fastq.gz        I32-Hsa-LaSSB-KD_S7_L004_R1_001.fastq.gz
+RE-8-TruSeq_Ago1KD_S4_L001_R1_001.fastq.gz        RE-8-TruSeq_Ago1KD_S4_L002_R1_001.fastq.gz        RE-8-TruSeq_Ago1KD_S4_L003_R1_001.fastq.gz        RE-8-TruSeq_Ago1KD_S4_L004_R1_001.fastq.gz
+RE-8-TruSeq_Ago2KD_S5_L001_R1_001.fastq.gz        RE-8-TruSeq_Ago2KD_S5_L002_R1_001.fastq.gz        RE-8-TruSeq_Ago2KD_S5_L003_R1_001.fastq.gz        RE-8-TruSeq_Ago2KD_S5_L004_R1_001.fastq.gz
+RE-8-TruSeq_Ago3KD_S8_L001_R1_001.fastq.gz        RE-8-TruSeq_Ago3KD_S8_L002_R1_001.fastq.gz        RE-8-TruSeq_Ago3KD_S8_L003_R1_001.fastq.gz        RE-8-TruSeq_Ago3KD_S8_L004_R1_001.fastq.gz
+RE-8-TruSeq_Ago4KD_S7_L001_R1_001.fastq.gz        RE-8-TruSeq_Ago4KD_S7_L002_R1_001.fastq.gz        RE-8-TruSeq_Ago4KD_S7_L003_R1_001.fastq.gz        RE-8-TruSeq_Ago4KD_S7_L004_R1_001.fastq.gz
+RE-8-TruSeq_DicerKD_S6_L001_R1_001.fastq.gz        RE-8-TruSeq_DicerKD_S6_L002_R1_001.fastq.gz        RE-8-TruSeq_DicerKD_S6_L003_R1_001.fastq.gz        RE-8-TruSeq_DicerKD_S6_L004_R1_001.fastq.gz
+RE-8-TruSeq_DroshaKD_S1_L001_R1_001.fastq.gz        RE-8-TruSeq_DroshaKD_S1_L002_R1_001.fastq.gz        RE-8-TruSeq_DroshaKD_S1_L004_R1_001.fastq.gz        RE-8-TruSeq_DroskaKD_S1_L003_R1_001.fastq.gz
+RE-8-TruSeq_LaKD_S3_L001_R1_001.fastq.gz        RE-8-TruSeq_LaKD_S3_L002_R1_001.fastq.gz        RE-8-TruSeq_LaKD_S3_L003_R1_001.fastq.gz        RE-8-TruSeq_LaKD_S3_L004_R1_001.fastq.gz
+SNU-ago1KD_S5_L001_R1_001.fastq.gz        SNU-ago1KD_S5_L002_R1_001.fastq.gz        SNU-ago1KD_S5_L003_R1_001.fastq.gz        SNU-ago1KD_S5_L004_R1_001.fastq.gz
+SNU-ago2KD_S6_L001_R1_001.fastq.gz        SNU-ago2KD_S6_L002_R1_001.fastq.gz        SNU-ago2KD_S6_L003_R1_001.fastq.gz        SNU-ago2KD_S6_L004_R1_001.fastq.gz
+SNU-ago3KD_S7_L001_R1_001.fastq.gz        SNU-ago3KD_S7_L002_R1_001.fastq.gz        SNU-ago3KD_S7_L003_R1_001.fastq.gz        SNU-ago3KD_S7_L004_R1_001.fastq.gz
+SNU-ago4KD_S4_L001_R1_001.fastq.gz        SNU-ago4KD_S4_L002_R1_001.fastq.gz        SNU-ago4KD_S4_L003_R1_001.fastq.gz        SNU-ago4KD_S4_L004_R1_001.fastq.gz
+SNU-dicerKD_S8_L001_R1_001.fastq.gz        SNU-dicerKD_S8_L002_R1_001.fastq.gz        SNU-dicerKD_S8_L003_R1_001.fastq.gz        SNU-dicerKD_S8_L004_R1_001.fastq.gz
+SNU-droshaKD_S3_L001_R1_001.fastq.gz        SNU-droshaKD_S3_L002_R1_001.fastq.gz        SNU-droshaKD_S3_L003_R1_001.fastq.gz        SNU-droshaKD_S3_L004_R1_001.fastq.gz
+</strong></pre>
+
+We see the fastas were combined appropriately. We are now ready to trim our data.
+<h2 id='trimming">Trimming reads with sickle</h2>
+
+
+The paired-end reads were trimmed with the following code:
+<pre style="color: silver; background: black;">
+module load sickle
+
+cd combined_paired_end_fastas
+array=( $(ls .) )
+i=0
+while [ $i -lt ${#array[@]} ]; 
+do export BASENAME=$(basename ${array[$i]} _L001_R1_001.fastq.gz).trimmed; 
+sickle pe \
+-t sanger \
+-f ${array[$i]} -r ${array[$i+1]} \
+-o ../trimmed_combined_paired_end_fastas/$BASENAME.R1.fastq \
+-p ../trimmed_combined_paired_end_fastas/$BASENAME.R2.fastq \
+-s ../trimmed_combined_paired_end_fastas/$BASENAME.singles.fastq \
+-q 30 \
+-l 50; 
+i=$(( $i + 2 )); 
+done;
+</pre>
+
+Should the wrong pair be processed `sickle` will return an error. After checking the standard output it was verified that all pairs were properly trimmed.
+
+The single-end fastas were trimmed with the following code:
+<pre style="color: silver; background: black;">
+module load sickle
+cd combined_single_end_fastas
+
+array=( $(ls .) )
+i=0
+while [ $i -lt ${#array[@]} ]; 
+do export BASENAME=$(basename ${array[$i]} .fastq.gz).trimmed; 
+sickle se \
+-f ${array[$i]} \
+-t sanger \
+-o ../trimmed_single_end_fastas/$BASENAME.fastq.gz \
+-q 30 \
+-l 50; 
+i=$(( $i + 1 )); 
+done;
+</pre>
+
