@@ -8,6 +8,9 @@
 	<li><a href="#Third_Point_Header">3 Quality control using sickle</a></li>
 	<ol><li><a href="#combining">Combining multiple runs per sample correctly</a></li>
 		<li><a href="#trimming">Trimming reads with sickle</a></li></ol>
+	<li><a href="#Fourth_Point_Header">4 Aligning reads using HISAT2</a></li>
+	<ol><li><a href="index">Building the index</a></li>
+		<a href="align">Aligning reads to the index</a></li>
 </ul>
  
 <h2 id="First_Point_Header">Overview and directory layout</h2>
@@ -283,4 +286,12 @@ sickle se \
 i=$(( $i + 1 )); 
 done;
 </pre>
+
+The trimmed files are in `/UCHC/PublicShare/jules/trimmed_combined/paired_end_fastas/` and `/UCHC/PublicShare/jules/trimmed_single_end_fastas/'.
+
+<h2 id="Fourth_Point_Header">Aligning reads using HISAT2</h2>
+
+<h2 id="index">Building the index</h2>
+
+The index was built with the following code:
 
