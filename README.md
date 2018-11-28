@@ -148,7 +148,7 @@ The sampled sequences were also provided by Julianna. The paired-end sequences a
 <h2 id="Third_Point_eader">Quality control using sickle</h2>
 <h2 id="combining">Concatenating mulitple runs per sample correctly</h2>
 Because there are multiple runs per sample, the paired-end and single-end samples had to be combined appropriately. The samples were combined with the following code:
-
+ <pre style="color: silver; background: black;">
 cd paired_end_fastas
 array=( $(ls .) )
 i=0
