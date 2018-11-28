@@ -159,18 +159,19 @@ cat ${array[$i]} ${array[$i+2]} ${array[$i+4]} ${array[$i+6]} >> ../combined_pai
 i=$(($i+8));
 done;
 
-<strong>I10-RPE1_S3_L001_R1_001.fastq.gz        I10-RPE1_S3_L002_R1_001.fastq.gz        I10-RPE1_S3_L003_R1_001.fastq.gz        I10-RPE1_S3_L004_R1_001.fastq.gz
-I11-RPE2_S8_L001_R1_001.fastq.gz        I11-RPE2_S8_L002_R1_001.fastq.gz        I11-RPE2_S8_L003_R1_001.fastq.gz        I11-RPE2_S8_L004_R1_001.fastq.gz
-I12-RPE3_S11_L001_R1_001.fastq.gz        I12-RPE3_S11_L002_R1_001.fastq.gz        I12-RPE3_S11_L003_R1_001.fastq.gz        I12-RPE3_S11_L004_R1_001.fastq.gz
-I1-RE-8_S12_L001_R1_001.fastq.gz        I1-RE-8_S12_L002_R1_001.fastq.gz        I1-RE-8_S12_L003_R1_001.fastq.gz        I1-RE-8_S12_L004_R1_001.fastq.gz
-I2-RE-10_S7_L001_R1_001.fastq.gz        I2-RE-10_S7_L002_R1_001.fastq.gz        I2-RE-10_S7_L003_R1_001.fastq.gz        I2-RE-10_S7_L004_R1_001.fastq.gz
-I3-RE-12_S9_L001_R1_001.fastq.gz        I3-RE-12_S9_L002_R1_001.fastq.gz        I3-RE-12_S9_L003_R1_001.fastq.gz        I3-RE-12_S9_L004_R1_001.fastq.gz
-I4-shA-5_S2_L001_R1_001.fastq.gz        I4-shA-5_S2_L002_R1_001.fastq.gz        I4-shA-5_S2_L003_R1_001.fastq.gz        I4-shA-5_S2_L004_R1_001.fastq.gz
-I5-shD-2_S10_L001_R1_001.fastq.gz        I5-shD-2_S10_L002_R1_001.fastq.gz        I5-shD-2_S10_L003_R1_001.fastq.gz        I5-shD-2_S10_L004_R1_001.fastq.gz
-I6-shE-3_S6_L001_R1_001.fastq.gz        I6-shE-3_S6_L002_R1_001.fastq.gz        I6-shE-3_S6_L003_R1_001.fastq.gz        I6-shE-3_S6_L004_R1_001.fastq.gz
-I7-miA-1_S5_L001_R1_001.fastq.gz        I7-miA-1_S5_L002_R1_001.fastq.gz        I7-miA-1_S5_L003_R1_001.fastq.gz        I7-miA-1_S5_L004_R1_001.fastq.gz
-I8-miC-1_S1_L001_R1_001.fastq.gz        I8-miC-1_S1_L002_R1_001.fastq.gz        I8-miC-1_S1_L003_R1_001.fastq.gz        I8-miC-1_S1_L004_R1_001.fastq.gz
-I9-miD-1_S4_L001_R1_001.fastq.gz        I9-miD-1_S4_L002_R1_001.fastq.gz        I9-miD-1_S4_L003_R1_001.fastq.gz        I9-miD-1_S4_L004_R1_001.fastq.gz
+<strong>I10-RPE1_S3_L001_R1_001.fastq.gz   I10-RPE1_S3_L002_R1_001.fastq.gz   I10-RPE1_S3_L003_R1_001.fastq.gz   I10-RPE1_S3_L004_R1_001.fastq.gz
+I11-RPE2_S8_L001_R1_001.fastq.gz   I11-RPE2_S8_L002_R1_001.fastq.gz   I11-RPE2_S8_L003_R1_001.fastq.gz   I11-RPE2_S8_L004_R1_001.fastq.gz
+I12-RPE3_S11_L001_R1_001.fastq.gz  I12-RPE3_S11_L002_R1_001.fastq.gz  I12-RPE3_S11_L003_R1_001.fastq.gz  I12-RPE3_S11_L004_R1_001.fastq.gz
+I1-RE-8_S12_L001_R1_001.fastq.gz   I1-RE-8_S12_L002_R1_001.fastq.gz   I1-RE-8_S12_L003_R1_001.fastq.gz   I1-RE-8_S12_L004_R1_001.fastq.gz
+I2-RE-10_S7_L001_R1_001.fastq.gz   I2-RE-10_S7_L002_R1_001.fastq.gz   I2-RE-10_S7_L003_R1_001.fastq.gz   I2-RE-10_S7_L004_R1_001.fastq.gz
+I3-RE-12_S9_L001_R1_001.fastq.gz   I3-RE-12_S9_L002_R1_001.fastq.gz   I3-RE-12_S9_L003_R1_001.fastq.gz   I3-RE-12_S9_L004_R1_001.fastq.gz
+I4-shA-5_S2_L001_R1_001.fastq.gz   I4-shA-5_S2_L002_R1_001.fastq.gz   I4-shA-5_S2_L003_R1_001.fastq.gz   I4-shA-5_S2_L004_R1_001.fastq.gz
+I5-shD-2_S10_L001_R1_001.fastq.gz  I5-shD-2_S10_L002_R1_001.fastq.gz  I5-shD-2_S10_L003_R1_001.fastq.gz  I5-shD-2_S10_L004_R1_001.fastq.gz
+I6-shE-3_S6_L001_R1_001.fastq.gz   I6-shE-3_S6_L002_R1_001.fastq.gz   I6-shE-3_S6_L003_R1_001.fastq.gz   I6-shE-3_S6_L004_R1_001.fastq.gz
+I7-miA-1_S5_L001_R1_001.fastq.gz   I7-miA-1_S5_L002_R1_001.fastq.gz   I7-miA-1_S5_L003_R1_001.fastq.gz   I7-miA-1_S5_L004_R1_001.fastq.gz
+I8-miC-1_S1_L001_R1_001.fastq.gz   I8-miC-1_S1_L002_R1_001.fastq.gz   I8-miC-1_S1_L003_R1_001.fastq.gz   I8-miC-1_S1_L004_R1_001.fastq.gz
+I9-miD-1_S4_L001_R1_001.fastq.gz   I9-miD-1_S4_L002_R1_001.fastq.gz   I9-miD-1_S4_L003_R1_001.fastq.gz   I9-miD-1_S4_L004_R1_001.fastq.gz
+
 </strong>
 
 array=( $(ls .) )
@@ -181,18 +182,19 @@ echo ${array[$i]} ${array[$i+2]} ${array[$i+4]} ${array[$i+6]};
 cat ${array[$i]} ${array[$i+2]} ${array[$i+4]} ${array[$i+6]} >> ../combined_paired_end_fastas/$BASENAME;
 i=$(($i+8));
 done;
-<strong>I10-RPE1_S3_L001_R2_001.fastq.gz        I10-RPE1_S3_L002_R2_001.fastq.gz        I10-RPE1_S3_L003_R2_001.fastq.gz        I10-RPE1_S3_L004_R2_001.fastq.gz
-I11-RPE2_S8_L001_R2_001.fastq.gz        I11-RPE2_S8_L002_R2_001.fastq.gz        I11-RPE2_S8_L003_R2_001.fastq.gz        I11-RPE2_S8_L004_R2_001.fastq.gz
-I12-RPE3_S11_L001_R2_001.fastq.gz        I12-RPE3_S11_L002_R2_001.fastq.gz        I12-RPE3_S11_L003_R2_001.fastq.gz        I12-RPE3_S11_L004_R2_001.fastq.gz
-I1-RE-8_S12_L001_R2_001.fastq.gz        I1-RE-8_S12_L002_R2_001.fastq.gz        I1-RE-8_S12_L003_R2_001.fastq.gz        I1-RE-8_S12_L004_R2_001.fastq.gz
-I2-RE-10_S7_L001_R2_001.fastq.gz        I2-RE-10_S7_L002_R2_001.fastq.gz        I2-RE-10_S7_L003_R2_001.fastq.gz        I2-RE-10_S7_L004_R2_001.fastq.gz
-I3-RE-12_S9_L001_R2_001.fastq.gz        I3-RE-12_S9_L002_R2_001.fastq.gz        I3-RE-12_S9_L003_R2_001.fastq.gz        I3-RE-12_S9_L004_R2_001.fastq.gz
-I4-shA-5_S2_L001_R2_001.fastq.gz        I4-shA-5_S2_L002_R2_001.fastq.gz        I4-shA-5_S2_L003_R2_001.fastq.gz        I4-shA-5_S2_L004_R2_001.fastq.gz
-I5-shD-2_S10_L001_R2_001.fastq.gz        I5-shD-2_S10_L002_R2_001.fastq.gz        I5-shD-2_S10_L003_R2_001.fastq.gz        I5-shD-2_S10_L004_R2_001.fastq.gz
-I6-shE-3_S6_L001_R2_001.fastq.gz        I6-shE-3_S6_L002_R2_001.fastq.gz        I6-shE-3_S6_L003_R2_001.fastq.gz        I6-shE-3_S6_L004_R2_001.fastq.gz
-I7-miA-1_S5_L001_R2_001.fastq.gz        I7-miA-1_S5_L002_R2_001.fastq.gz        I7-miA-1_S5_L003_R2_001.fastq.gz        I7-miA-1_S5_L004_R2_001.fastq.gz
-I8-miC-1_S1_L001_R2_001.fastq.gz        I8-miC-1_S1_L002_R2_001.fastq.gz        I8-miC-1_S1_L003_R2_001.fastq.gz        I8-miC-1_S1_L004_R2_001.fastq.gz
-I9-miD-1_S4_L001_R2_001.fastq.gz        I9-miD-1_S4_L002_R2_001.fastq.gz        I9-miD-1_S4_L003_R2_001.fastq.gz        I9-miD-1_S4_L004_R2_001.fastq.gz
+<strong>I10-RPE1_S3_L001_R2_001.fastq.gz   I10-RPE1_S3_L002_R2_001.fastq.gz   I10-RPE1_S3_L003_R2_001.fastq.gz   I10-RPE1_S3_L004_R2_001.fastq.gz
+I11-RPE2_S8_L001_R2_001.fastq.gz   I11-RPE2_S8_L002_R2_001.fastq.gz   I11-RPE2_S8_L003_R2_001.fastq.gz   I11-RPE2_S8_L004_R2_001.fastq.gz
+I12-RPE3_S11_L001_R2_001.fastq.gz  I12-RPE3_S11_L002_R2_001.fastq.gz  I12-RPE3_S11_L003_R2_001.fastq.gz  I12-RPE3_S11_L004_R2_001.fastq.gz
+I1-RE-8_S12_L001_R2_001.fastq.gz   I1-RE-8_S12_L002_R2_001.fastq.gz   I1-RE-8_S12_L003_R2_001.fastq.gz   I1-RE-8_S12_L004_R2_001.fastq.gz
+I2-RE-10_S7_L001_R2_001.fastq.gz   I2-RE-10_S7_L002_R2_001.fastq.gz   I2-RE-10_S7_L003_R2_001.fastq.gz   I2-RE-10_S7_L004_R2_001.fastq.gz
+I3-RE-12_S9_L001_R2_001.fastq.gz   I3-RE-12_S9_L002_R2_001.fastq.gz   I3-RE-12_S9_L003_R2_001.fastq.gz   I3-RE-12_S9_L004_R2_001.fastq.gz
+I4-shA-5_S2_L001_R2_001.fastq.gz   I4-shA-5_S2_L002_R2_001.fastq.gz   I4-shA-5_S2_L003_R2_001.fastq.gz   I4-shA-5_S2_L004_R2_001.fastq.gz
+I5-shD-2_S10_L001_R2_001.fastq.gz  I5-shD-2_S10_L002_R2_001.fastq.gz  I5-shD-2_S10_L003_R2_001.fastq.gz  I5-shD-2_S10_L004_R2_001.fastq.gz
+I6-shE-3_S6_L001_R2_001.fastq.gz   I6-shE-3_S6_L002_R2_001.fastq.gz   I6-shE-3_S6_L003_R2_001.fastq.gz   I6-shE-3_S6_L004_R2_001.fastq.gz
+I7-miA-1_S5_L001_R2_001.fastq.gz   I7-miA-1_S5_L002_R2_001.fastq.gz   I7-miA-1_S5_L003_R2_001.fastq.gz   I7-miA-1_S5_L004_R2_001.fastq.gz
+I8-miC-1_S1_L001_R2_001.fastq.gz   I8-miC-1_S1_L002_R2_001.fastq.gz   I8-miC-1_S1_L003_R2_001.fastq.gz   I8-miC-1_S1_L004_R2_001.fastq.gz
+I9-miD-1_S4_L001_R2_001.fastq.gz   I9-miD-1_S4_L002_R2_001.fastq.gz   I9-miD-1_S4_L003_R2_001.fastq.gz   I9-miD-1_S4_L004_R2_001.fastq.gz
+
 </strong></pre>
 
 We see that thesee files have been processed correctly. Now for the single end fastas:
@@ -205,34 +207,35 @@ echo ${array[$i]} ${array[$i+1]} ${array[$i+2]} ${array[$i+3]};
 cat ${array[$i]} ${array[$i+1]} ${array[$i+2]} ${array[$i+3]} >> ../combined_single_end_fastas/$BASENAME;
 i=$(($i+4));
 done;
-<strong>DaudiAgo1KD_S2_L001_R1_001.fastq.gz        DaudiAgo1KD_S2_L002_R1_001.fastq.gz        DaudiAgo1KD_S2_L003_R1_001.fastq.gz        DaudiAgo1KD_S2_L004_R1_001.fastq.gz
-DaudiAgo2KD_S8_L001_R1_001.fastq.gz        DaudiAgo2KD_S8_L002_R1_001.fastq.gz        DaudiAgo2KD_S8_L003_R1_001.fastq.gz        DaudiAgo2KD_S8_L004_R1_001.fastq.gz
-DaudiAgo3KD_S1_L001_R1_001.fastq.gz        DaudiAgo3KD_S1_L002_R1_001.fastq.gz        DaudiAgo3KD_S1_L003_R1_001.fastq.gz        DaudiAgo3KD_S1_L004_R1_001.fastq.gz
-DaudiAgo4KD_S7_L001_R1_001.fastq.gz        DaudiAgo4KD_S7_L002_R1_001.fastq.gz        DaudiAgo4KD_S7_L003_R1_001.fastq.gz        DaudiAgo4KD_S7_L004_R1_001.fastq.gz
-DaudiDicerKD_S4_L001_R1_001.fastq.gz        DaudiDicerKD_S4_L002_R1_001.fastq.gz        DaudiDicerKD_S4_L003_R1_001.fastq.gz        DaudiDicerKD_S4_L004_R1_001.fastq.gz
-DaudiDroshaKD_S5_L001_R1_001.fastq.gz        DaudiDroshaKD_S5_L002_R1_001.fastq.gz        DaudiDroshaKD_S5_L003_R1_001.fastq.gz        DaudiDroshaKD_S5_L004_R1_001.fastq.gz
-DaudiLaKD_S6_L001_R1_001.fastq.gz        DaudiLaKD_S6_L002_R1_001.fastq.gz        DaudiLaKD_S6_L003_R1_001.fastq.gz        DaudiLaKD_S6_L004_R1_001.fastq.gz
-DaudiNoTxt_S3_L001_R1_001.fastq.gz        DaudiNoTxt_S3_L002_R1_001.fastq.gz        DaudiNoTxt_S3_L003_R1_001.fastq.gz        DaudiNoTxt_S3_L004_R1_001.fastq.gz
-I26-Hsa-DicerKD_S10_L001_R1_001.fastq.gz        I26-Hsa-DicerKD_S10_L002_R1_001.fastq.gz        I26-Hsa-DicerKD_S10_L003_R1_001.fastq.gz        I26-Hsa-DicerKD_S10_L004_R1_001.fastq.gz
-I27-Hsa-DroshaKD_S9_L001_R1_001.fastq.gz        I27-Hsa-DroshaKD_S9_L002_R1_001.fastq.gz        I27-Hsa-DroshaKD_S9_L003_R1_001.fastq.gz        I27-Hsa-DroshaKD_S9_L004_R1_001.fastq.gz
+<strong>DaudiAgo1KD_S2_L001_R1_001.fastq.gz           DaudiAgo1KD_S2_L002_R1_001.fastq.gz           DaudiAgo1KD_S2_L003_R1_001.fastq.gz           DaudiAgo1KD_S2_L004_R1_001.fastq.gz
+DaudiAgo2KD_S8_L001_R1_001.fastq.gz           DaudiAgo2KD_S8_L002_R1_001.fastq.gz           DaudiAgo2KD_S8_L003_R1_001.fastq.gz           DaudiAgo2KD_S8_L004_R1_001.fastq.gz
+DaudiAgo3KD_S1_L001_R1_001.fastq.gz           DaudiAgo3KD_S1_L002_R1_001.fastq.gz           DaudiAgo3KD_S1_L003_R1_001.fastq.gz           DaudiAgo3KD_S1_L004_R1_001.fastq.gz
+DaudiAgo4KD_S7_L001_R1_001.fastq.gz           DaudiAgo4KD_S7_L002_R1_001.fastq.gz           DaudiAgo4KD_S7_L003_R1_001.fastq.gz           DaudiAgo4KD_S7_L004_R1_001.fastq.gz
+DaudiDicerKD_S4_L001_R1_001.fastq.gz          DaudiDicerKD_S4_L002_R1_001.fastq.gz          DaudiDicerKD_S4_L003_R1_001.fastq.gz          DaudiDicerKD_S4_L004_R1_001.fastq.gz
+DaudiDroshaKD_S5_L001_R1_001.fastq.gz         DaudiDroshaKD_S5_L002_R1_001.fastq.gz         DaudiDroshaKD_S5_L003_R1_001.fastq.gz         DaudiDroshaKD_S5_L004_R1_001.fastq.gz
+DaudiLaKD_S6_L001_R1_001.fastq.gz             DaudiLaKD_S6_L002_R1_001.fastq.gz             DaudiLaKD_S6_L003_R1_001.fastq.gz             DaudiLaKD_S6_L004_R1_001.fastq.gz
+DaudiNoTxt_S3_L001_R1_001.fastq.gz            DaudiNoTxt_S3_L002_R1_001.fastq.gz            DaudiNoTxt_S3_L003_R1_001.fastq.gz            DaudiNoTxt_S3_L004_R1_001.fastq.gz
+I26-Hsa-DicerKD_S10_L001_R1_001.fastq.gz      I26-Hsa-DicerKD_S10_L002_R1_001.fastq.gz      I26-Hsa-DicerKD_S10_L003_R1_001.fastq.gz	  I26-Hsa-DicerKD_S10_L004_R1_001.fastq.gz
+I27-Hsa-DroshaKD_S9_L001_R1_001.fastq.gz      I27-Hsa-DroshaKD_S9_L002_R1_001.fastq.gz      I27-Hsa-DroshaKD_S9_L003_R1_001.fastq.gz	  I27-Hsa-DroshaKD_S9_L004_R1_001.fastq.gz
 I28-Hsa-Ago1KD_S6_L001_R1_001.fastq.gz        I28-Hsa-Ago1KD_S6_L002_R1_001.fastq.gz        I28-Hsa-Ago1KD_S6_L003_R1_001.fastq.gz        I28-Hsa-Ago1KD_S6_L004_R1_001.fastq.gz
 I29-Hsa-Ago2KD_S8_L001_R1_001.fastq.gz        I29-Hsa-Ago2KD_S8_L002_R1_001.fastq.gz        I29-Hsa-Ago2KD_S8_L003_R1_001.fastq.gz        I29-Hsa-Ago2KD_S8_L004_R1_001.fastq.gz
 I30-Hsa-Ago3KD_S5_L001_R1_001.fastq.gz        I30-Hsa-Ago3KD_S5_L002_R1_001.fastq.gz        I30-Hsa-Ago3KD_S5_L003_R1_001.fastq.gz        I30-Hsa-Ago3KD_S5_L004_R1_001.fastq.gz
 I31-Hsa-Ago4KD_S3_L001_R1_001.fastq.gz        I31-Hsa-Ago4KD_S3_L002_R1_001.fastq.gz        I31-Hsa-Ago4KD_S3_L003_R1_001.fastq.gz        I31-Hsa-Ago4KD_S3_L004_R1_001.fastq.gz
-I32-Hsa-LaSSB-KD_S7_L001_R1_001.fastq.gz        I32-Hsa-LaSSB-KD_S7_L002_R1_001.fastq.gz        I32-Hsa-LaSSB-KD_S7_L003_R1_001.fastq.gz        I32-Hsa-LaSSB-KD_S7_L004_R1_001.fastq.gz
-RE-8-TruSeq_Ago1KD_S4_L001_R1_001.fastq.gz        RE-8-TruSeq_Ago1KD_S4_L002_R1_001.fastq.gz        RE-8-TruSeq_Ago1KD_S4_L003_R1_001.fastq.gz        RE-8-TruSeq_Ago1KD_S4_L004_R1_001.fastq.gz
-RE-8-TruSeq_Ago2KD_S5_L001_R1_001.fastq.gz        RE-8-TruSeq_Ago2KD_S5_L002_R1_001.fastq.gz        RE-8-TruSeq_Ago2KD_S5_L003_R1_001.fastq.gz        RE-8-TruSeq_Ago2KD_S5_L004_R1_001.fastq.gz
-RE-8-TruSeq_Ago3KD_S8_L001_R1_001.fastq.gz        RE-8-TruSeq_Ago3KD_S8_L002_R1_001.fastq.gz        RE-8-TruSeq_Ago3KD_S8_L003_R1_001.fastq.gz        RE-8-TruSeq_Ago3KD_S8_L004_R1_001.fastq.gz
-RE-8-TruSeq_Ago4KD_S7_L001_R1_001.fastq.gz        RE-8-TruSeq_Ago4KD_S7_L002_R1_001.fastq.gz        RE-8-TruSeq_Ago4KD_S7_L003_R1_001.fastq.gz        RE-8-TruSeq_Ago4KD_S7_L004_R1_001.fastq.gz
-RE-8-TruSeq_DicerKD_S6_L001_R1_001.fastq.gz        RE-8-TruSeq_DicerKD_S6_L002_R1_001.fastq.gz        RE-8-TruSeq_DicerKD_S6_L003_R1_001.fastq.gz        RE-8-TruSeq_DicerKD_S6_L004_R1_001.fastq.gz
-RE-8-TruSeq_DroshaKD_S1_L001_R1_001.fastq.gz        RE-8-TruSeq_DroshaKD_S1_L002_R1_001.fastq.gz        RE-8-TruSeq_DroshaKD_S1_L004_R1_001.fastq.gz        RE-8-TruSeq_DroskaKD_S1_L003_R1_001.fastq.gz
-RE-8-TruSeq_LaKD_S3_L001_R1_001.fastq.gz        RE-8-TruSeq_LaKD_S3_L002_R1_001.fastq.gz        RE-8-TruSeq_LaKD_S3_L003_R1_001.fastq.gz        RE-8-TruSeq_LaKD_S3_L004_R1_001.fastq.gz
-SNU-ago1KD_S5_L001_R1_001.fastq.gz        SNU-ago1KD_S5_L002_R1_001.fastq.gz        SNU-ago1KD_S5_L003_R1_001.fastq.gz        SNU-ago1KD_S5_L004_R1_001.fastq.gz
-SNU-ago2KD_S6_L001_R1_001.fastq.gz        SNU-ago2KD_S6_L002_R1_001.fastq.gz        SNU-ago2KD_S6_L003_R1_001.fastq.gz        SNU-ago2KD_S6_L004_R1_001.fastq.gz
-SNU-ago3KD_S7_L001_R1_001.fastq.gz        SNU-ago3KD_S7_L002_R1_001.fastq.gz        SNU-ago3KD_S7_L003_R1_001.fastq.gz        SNU-ago3KD_S7_L004_R1_001.fastq.gz
-SNU-ago4KD_S4_L001_R1_001.fastq.gz        SNU-ago4KD_S4_L002_R1_001.fastq.gz        SNU-ago4KD_S4_L003_R1_001.fastq.gz        SNU-ago4KD_S4_L004_R1_001.fastq.gz
-SNU-dicerKD_S8_L001_R1_001.fastq.gz        SNU-dicerKD_S8_L002_R1_001.fastq.gz        SNU-dicerKD_S8_L003_R1_001.fastq.gz        SNU-dicerKD_S8_L004_R1_001.fastq.gz
-SNU-droshaKD_S3_L001_R1_001.fastq.gz        SNU-droshaKD_S3_L002_R1_001.fastq.gz        SNU-droshaKD_S3_L003_R1_001.fastq.gz        SNU-droshaKD_S3_L004_R1_001.fastq.gz
+I32-Hsa-LaSSB-KD_S7_L001_R1_001.fastq.gz      I32-Hsa-LaSSB-KD_S7_L002_R1_001.fastq.gz      I32-Hsa-LaSSB-KD_S7_L003_R1_001.fastq.gz	  I32-Hsa-LaSSB-KD_S7_L004_R1_001.fastq.gz
+RE-8-TruSeq_Ago1KD_S4_L001_R1_001.fastq.gz    RE-8-TruSeq_Ago1KD_S4_L002_R1_001.fastq.gz    RE-8-TruSeq_Ago1KD_S4_L003_R1_001.fastq.gz    RE-8-TruSeq_Ago1KD_S4_L004_R1_001.fastq.gz
+RE-8-TruSeq_Ago2KD_S5_L001_R1_001.fastq.gz    RE-8-TruSeq_Ago2KD_S5_L002_R1_001.fastq.gz    RE-8-TruSeq_Ago2KD_S5_L003_R1_001.fastq.gz    RE-8-TruSeq_Ago2KD_S5_L004_R1_001.fastq.gz
+RE-8-TruSeq_Ago3KD_S8_L001_R1_001.fastq.gz    RE-8-TruSeq_Ago3KD_S8_L002_R1_001.fastq.gz    RE-8-TruSeq_Ago3KD_S8_L003_R1_001.fastq.gz    RE-8-TruSeq_Ago3KD_S8_L004_R1_001.fastq.gz
+RE-8-TruSeq_Ago4KD_S7_L001_R1_001.fastq.gz    RE-8-TruSeq_Ago4KD_S7_L002_R1_001.fastq.gz    RE-8-TruSeq_Ago4KD_S7_L003_R1_001.fastq.gz    RE-8-TruSeq_Ago4KD_S7_L004_R1_001.fastq.gz
+RE-8-TruSeq_DicerKD_S6_L001_R1_001.fastq.gz   RE-8-TruSeq_DicerKD_S6_L002_R1_001.fastq.gz   RE-8-TruSeq_DicerKD_S6_L003_R1_001.fastq.gz   RE-8-TruSeq_DicerKD_S6_L004_R1_001.fastq.gz
+RE-8-TruSeq_DroshaKD_S1_L001_R1_001.fastq.gz  RE-8-TruSeq_DroshaKD_S1_L002_R1_001.fastq.gz  RE-8-TruSeq_DroshaKD_S1_L004_R1_001.fastq.gz  RE-8-TruSeq_DroskaKD_S1_L003_R1_001.fastq.gz
+RE-8-TruSeq_LaKD_S3_L001_R1_001.fastq.gz      RE-8-TruSeq_LaKD_S3_L002_R1_001.fastq.gz      RE-8-TruSeq_LaKD_S3_L003_R1_001.fastq.gz	  RE-8-TruSeq_LaKD_S3_L004_R1_001.fastq.gz
+SNU-ago1KD_S5_L001_R1_001.fastq.gz            SNU-ago1KD_S5_L002_R1_001.fastq.gz            SNU-ago1KD_S5_L003_R1_001.fastq.gz            SNU-ago1KD_S5_L004_R1_001.fastq.gz
+SNU-ago2KD_S6_L001_R1_001.fastq.gz            SNU-ago2KD_S6_L002_R1_001.fastq.gz            SNU-ago2KD_S6_L003_R1_001.fastq.gz            SNU-ago2KD_S6_L004_R1_001.fastq.gz
+SNU-ago3KD_S7_L001_R1_001.fastq.gz            SNU-ago3KD_S7_L002_R1_001.fastq.gz            SNU-ago3KD_S7_L003_R1_001.fastq.gz            SNU-ago3KD_S7_L004_R1_001.fastq.gz
+SNU-ago4KD_S4_L001_R1_001.fastq.gz            SNU-ago4KD_S4_L002_R1_001.fastq.gz            SNU-ago4KD_S4_L003_R1_001.fastq.gz            SNU-ago4KD_S4_L004_R1_001.fastq.gz
+SNU-dicerKD_S8_L001_R1_001.fastq.gz           SNU-dicerKD_S8_L002_R1_001.fastq.gz           SNU-dicerKD_S8_L003_R1_001.fastq.gz           SNU-dicerKD_S8_L004_R1_001.fastq.gz
+SNU-droshaKD_S3_L001_R1_001.fastq.gz          SNU-droshaKD_S3_L002_R1_001.fastq.gz          SNU-droshaKD_S3_L003_R1_001.fastq.gz          SNU-droshaKD_S3_L004_R1_001.fastq.gz
+
 </strong></pre>
 
 We see the fastas were combined appropriately. We are now ready to trim our data.
