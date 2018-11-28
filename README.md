@@ -239,7 +239,7 @@ SNU-droshaKD_S3_L001_R1_001.fastq.gz          SNU-droshaKD_S3_L002_R1_001.fastq.
 </strong></pre>
 
 We see the fastas were combined appropriately. We are now ready to trim our data.
-<h2 id='trimming">Trimming reads with sickle</h2>
+<h2 id="trimming">Trimming reads with sickle</h2>
 
 
 The paired-end reads were trimmed with the following code:
