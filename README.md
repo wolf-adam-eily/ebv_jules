@@ -17,7 +17,7 @@
  
  TOTAL RNA LIBRARIES:
  (RPE stands for human retinal pigmented epithelial cell lines)
- <<pre style="color: silver; background: black;">>
+ <pre style="color: silver; background: black;">
  RPE (untreated cell lines) -- Negative control for basal cell line expression
  mi* (RPE with empty construct vector) -- Negative control for background effects of transfection or vector only)
  sh* (RPE with vector containing only small RNA portions of EBV) -- Determining effects of small RNA from EBV
