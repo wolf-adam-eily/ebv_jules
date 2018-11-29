@@ -294,4 +294,36 @@ The trimmed files are in `/UCHC/PublicShare/jules/trimmed_combined/paired_end_fa
 <h2 id="index">Building the index</h2>
 
 The index was built with the following code:
+<pre style="color: silver; background: black;">
+module load hisat2
+mkdir /UCHC/PublicShare/jules/index
+hisat2-build /UCHC/PublicShare/jules/jules_stuff/all.fasta  /UCHC/PublicShare/jules/index/all_index -p 8
+</pre>
 
+<h2 id="align">Aligning reads to the index</h2>
+
+The paired end reads were aligned with the following code:
+
+<pre style="color: silver; background: black;">
+cd /UCHC/PublicShare/jules/trimmed_combined_paired_end_fastas/
+array=( $( ls . ) )
+i=0
+while [ $i -lt ${#array[@]} ]; 
+do export BASENAME=$(basename ${array[$i]} R1.fastq)aligned.sam; 
+echo $BASENAME; 
+hisat2 -x /UCHC/PublicShare/jules/index/all_index \
+-p 8 -q -1 ${array[$i]} -2 ${array[$i+1]} \
+-S /UCHC/PublicShare/jules/alignments/sam_files/$BASENAME; 
+i=$(( $i + 3 )); 
+done;</pre>
+
+The single end reads were aligned with the following code:
+<pre style="color: silver; background: black;">
+module load hisat2
+
+for file in /UCHC/PublicShare/jules/trimmed_single_end_fastas/*; 
+do export BASENAME=$(basename $file .fastq).aligned.sam;  
+hisat2 -p 8 --dta -x /UCHC/PublicShare/jules/index/all_index \
+-q $file -S /UCHC/PublicShare/jules/alignments/sam_files/$BASENAME; 
+done;
+</pre>
