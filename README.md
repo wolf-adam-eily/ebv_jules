@@ -18,55 +18,55 @@
 Epidemiologists have found that different populations of the world manifest different long-term phenotypes from infection from the Epstein-Barr virus. Most notably that infected Westerners most often develop mononucleosis while Easterners, particularly Eastern Asians often go on to develop various forms of cancers. The hypothesis of this experiment is that various SNPs differences between Easterners and Westerners influence cellular populations of various interfering RNAs, affecting phenotype. Furthermore, Julianna Crivello, the lead investigator of this research proposes that Western SNPs cause greater production of various interfering RNAs which limit the extent of disease while Eastern SNPs cause lower production of various interfering RNAs, increasing chance of more serious disease, i.e., cancers. A variety of cell lines were cultured for this experiment, they are:
  
  
- TOTAL RNA LIBRARIES:
- (RPE stands for human retinal pigmented epithelial cell lines)
- <pre style="color: silver; background: black;">
- RPE (untreated cell lines) -- Negative control for basal cell line expression
- mi* (RPE with empty construct vector) -- Negative control for background effects of transfection or vector only)
- sh* (RPE with vector containing only small RNA portions of EBV) -- Determining effects of small RNA from EBV
- RE* (RPE with full length EBV vector) -- Determining full effects of EBV infection</pre>
+TOTAL RNA LIBRARIES:
+(RPE stands for human retinal pigmented epithelial cell lines)
+<pre style="color: silver; background: black;">
+RPE (untreated cell lines) -- Negative control for basal cell line expression
+mi* (RPE with empty construct vector) -- Negative control for background effects of transfection or vector only)
+sh* (RPE with vector containing only small RNA portions of EBV) -- Determining effects of small RNA from EBV
+RE* (RPE with full length EBV vector) -- Determining full effects of EBV infection</pre>
  
- The following differential expression analyses will be conducted using `DESEQ2`:
+The following differential expression analyses will be conducted using `DESEQ2`:
  
- <pre style="color: silver; background: black;">RPE vs mi*
- RE vs RPE
- RE vs mi*
- sh* vs RPE
- sh* vs mi*
- sh* vs RE</pre>
+<pre style="color: silver; background: black;">RPE vs mi*
+RE vs RPE
+RE vs mi*
+sh* vs RPE
+sh* vs mi*
+sh* vs RE</pre>
  
- SMALL RNA LIBRARIES
+SMALL RNA LIBRARIES
  
- Daudi = Burkett's Lymphona (an EBV+ cancer)
- Hsa = lymphoblast cells (immortalized by the addition of EBV in lab)
- SNU = gastric carcino (an EBV+ cancer)
- RE (same as above)
+Daudi = Burkett's Lymphona (an EBV+ cancer)<br>
+Hsa = lymphoblast cells (immortalized by the addition of EBV in lab)<br>
+SNU = gastric carcino (an EBV+ cancer)<br>
+RE (same as above)<br>
  
- The following proteins were knocked down in each sample:
- <pre style="color: silver; background: black;">
- no treatment (negative control)    Dicer   Drosha    Ago1    Ago2    Ago3    Ago4    La</pre>
+The following proteins were knocked down in each sample:
+<pre style="color: silver; background: black;">
+no treatment (negative control)    Dicer   Drosha    Ago1    Ago2    Ago3    Ago4    La</pre>
  
- For this portion of the analysis, only the various interfering RNAs will be used from each sample for the following differential expression analysis:
+For this portion of the analysis, only the various interfering RNAs will be used from each sample for the following differential expression analysis:
  
- <pre style="color: silver; background: black;">
- Daudi vs Hsa
- Daudi vs SNU
- Daudi vs RE
- Hsa vs SNU
- Hsa vs RE
- SNU vs RE</pre>
+<pre style="color: silver; background: black;">
+Daudi vs Hsa
+Daudi vs SNU
+Daudi vs RE
+Hsa vs SNU
+Hsa vs RE
+SNU vs RE</pre>
  
- <h2 id="Second_Point_Header">Gathering materials and directory layout</h2>
+<h2 id="Second_Point_Header">Gathering materials and directory layout</h2>
  
- The analysis is being performed at the location `/UCHC/PublicShare/jules/`.
+The analysis is being performed at the location `/UCHC/PublicShare/jules/`.
  
- To begin, the EBV, small RNAs, and Spike-in fastas and gtfs were provided by Julianna. They reside at: `/UCHC/PublicShare/jules/jules_stuff`. The directory looks like:
-  <pre style="color: silver; background: black;">
- EBV_NC_007605.1.fasta  ebv_spike_in.gff3  erccGenes.gtf.copy  ExiSEQ-NGS-QC-Spike-ins.fa  hg19.gtf</pre>
+To begin, the EBV, small RNAs, and Spike-in fastas and gtfs were provided by Julianna. They reside at: `/UCHC/PublicShare/jules/jules_stuff`. The directory looks like:
+<pre style="color: silver; background: black;">
+EBV_NC_007605.1.fasta  ebv_spike_in.gff3  erccGenes.gtf.copy  ExiSEQ-NGS-QC-Spike-ins.fa  hg19.gtf</pre>
  
- Where `hg19.gtf` was copied from `/isg/shared/databases/alignerIndex/animal/hg19_ucsc/hg19.gtf`. Because `hg19.gtf` is a `gtf` and our EBV/Spike-In feature table is `gff3` we need to amend the `gtf.
+Where `hg19.gtf` was copied from `/isg/shared/databases/alignerIndex/animal/hg19_ucsc/hg19.gtf`. Because `hg19.gtf` is a `gtf` and our EBV/Spike-In feature table is `gff3` we need to amend the `gtf.
  
- <pre style="color: silver; background: black;"> head ebv_spike_in.gff3 <strong>
+<pre style="color: silver; background: black;"> head ebv_spike_in.gff3 <strong>
 NC_007605.1	.	miRNA_primary_transcript	41471	41536	.	+	.	ID=MI0001064;Alias=MI0001064;Name=ebv-mir-BHRF1-1
 NC_007605.1	.	miRNA	41474	41495	.	+	.	ID=MIMAT0000995;Alias=MIMAT0000995;Name=ebv-miR-BHRF1-1;Derives_from=MI0001064
 NC_007605.1	.	miRNA_primary_transcript	42848	42912	.	+	.	ID=MI0001065;Alias=MI0001065;Name=ebv-mir-BHRF1-2
@@ -93,7 +93,7 @@ chr1	hg19_knownGene	CDS	12595	12721	0.000000	+	1	gene_id "uc010nxq.1"; transcrip
 
 We now change the `gtf` with the following codes:
 
- <pre style="color: silver; background: black;">
+<pre style="color: silver; background: black;">
 sed -i 's/gene_id /ID\=/g' hg19.gtf
 sed -i 's/ transcript_id /Name\=/g' hg19.gtf 
 sed -i 's/\"//g' hg19.gtf
@@ -111,14 +111,14 @@ chr1	hg19_knownGene	exon	11874	12227	0.000000	+	.	ID=uc010nxq.1;Name=uc010nxq.1
 chr1	hg19_knownGene	CDS	12595	12721	0.000000	+	1	ID=uc010nxq.1;Name=uc010nxq.1</strong></pre>
 
 We need to make sure that none of our chromosomes across organisms (semi-organismic) have the same name:
- <pre style="color: silver; background: black;">
+<pre style="color: silver; background: black;">
 wc -l hg19.gff3 
 <strong>1461416 hg19.gff3</strong>
 cut -f1 hg19.gff3 | grep -c "chr" 
 <strong>1461416</strong></pre>
 
 We see that every single identifier in `hg19.gff3` has `chr` in it. Let's see if that appears in our EBV/Spike_ins `gff3`:
- <pre style="color: silver; background: black;">
+<pre style="color: silver; background: black;">
 cut -f1 ebv_spike_in.gff3 | grep -c "chr"
 <strong>0</strong></pre>
 
@@ -151,7 +151,7 @@ The sampled sequences were also provided by Julianna. The paired-end sequences a
 <h2 id="Third_Point_eader">Quality control using sickle</h2>
 <h2 id="combining">Concatenating mulitple runs per sample correctly</h2>
 Because there are multiple runs per sample, the paired-end and single-end samples had to be combined appropriately. The samples were combined with the following code:
- <pre style="color: silver; background: black;">
+<pre style="color: silver; background: black;">
 cd paired_end_fastas
 array=( $(ls .) )
 i=0
