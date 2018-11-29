@@ -287,7 +287,7 @@ i=$(( $i + 1 ));
 done;
 </pre>
 
-The trimmed files are in `/UCHC/PublicShare/jules/trimmed_combined/paired_end_fastas/` and `/UCHC/PublicShare/jules/trimmed_single_end_fastas/'.
+The trimmed files are in `/UCHC/PublicShare/jules/trimmed_combined/paired_end_fastas/` and `/UCHC/PublicShare/jules/trimmed_single_end_fastas/`.
 
 <h2 id="Fourth_Point_Header">Aligning reads using HISAT2</h2>
 
