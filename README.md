@@ -10,7 +10,7 @@
 		<li><a href="#trimming">Trimming reads with sickle</a></li></ol>
 	<li><a href="#Fourth_Point_Header">4 Aligning reads using HISAT2</a></li>
 	<ol><li><a href="index">Building the index</a></li>
-		<a href="align">Aligning reads to the index</a></li>
+		<li><a href="align">Aligning reads to the index</a></li>
 </ul>
  
 <h2 id="First_Point_Header">Overview and directory layout</h2>
