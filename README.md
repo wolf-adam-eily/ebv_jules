@@ -241,7 +241,33 @@ SNU-droshaKD_S3_L001_R1_001.fastq.gz          SNU-droshaKD_S3_L002_R1_001.fastq.
 
 </strong></pre>
 
-We see the fastas were combined appropriately. We are now ready to trim our data.
+We see the fastas were combined appropriately. But to be sure, let's check. We save the output above in `/UCHC/PublicShare/jules/combo_check/` as `paired_end_r1`, `paired_end_r2`, `singles`, respectively. We first see if we are missing any files in our combined directories:
+<pre style="color: silver; background: black;">cd combo_check
+ls ../combined_paired_end_fastas >> combined_paired_end_list
+ls ../combined_single_end_fastas >> combined_single_end_list
+paste -d "\n" paired_end_r1 paired_end_r2 >> interleaved_paired_end
+
+cat combined_paired_end_list | xargs -Ivar grep $(basename var .fastq) interleaved_paired_end >> paired_end_in_common
+head paired_end_in_common
+<strong> I10-RPE1_S3_L001_R1_001.fastq.gz    I10-RPE1_S3_L002_R1_001.fastq.gz    I10-RPE1_S3_L003_R1_001.fastq.gz    I10-RPE1_S3_L004_R1_001.fastq.gz
+ I10-RPE1_S3_L001_R2_001.fastq.gz    I10-RPE1_S3_L002_R2_001.fastq.gz    I10-RPE1_S3_L003_R2_001.fastq.gz    I10-RPE1_S3_L004_R2_001.fastq.gz</strong>
+
+head interleaved_paired_end
+<strong> I10-RPE1_S3_L001_R1_001.fastq.gz    I10-RPE1_S3_L002_R1_001.fastq.gz    I10-RPE1_S3_L003_R1_001.fastq.gz    I10-RPE1_S3_L004_R1_001.fastq.gz
+ I10-RPE1_S3_L001_R2_001.fastq.gz    I10-RPE1_S3_L002_R2_001.fastq.gz    I10-RPE1_S3_L003_R2_001.fastq.gz    I10-RPE1_S3_L004_R2_001.fastq.gz</strong>
+
+grep -vFf interleaved_paired_end paired_end_in_common
+<strong>NO_OUTPUT</strong>
+
+grep -vFf interleaved_paired_end paired_end_in_common
+<strong>NO_OUTPUT</strong>
+
+grep -vFf paired_end_in_common interleaved_paired_end
+<strong>NO_OUTPUT</strong>
+
+
+
+We are now ready to trim our data.
 <h2 id="trimming">Trimming reads with sickle</h2>
 
 
