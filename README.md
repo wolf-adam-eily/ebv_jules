@@ -62,7 +62,8 @@ The analysis is being performed at the location `/UCHC/PublicShare/jules/`.
  
 The total RNA sequences are located at '/UCHC/PublicShare/jules/paired_end_fastas/`. The directory looks like:
 
-<pre style="color: silver; background: black;">I10-RPE1_S3_L001_R1_001.fastq.gz   I12-RPE3_S11_L003_R1_001.fastq.gz  I3-RE-12_S9_L001_R1_001.fastq.gz	 I5-shD-2_S10_L003_R1_001.fastq.gz  I8-miC-1_S1_L001_R1_001.fastq.gz
+<pre style="color: silver; background: black;">ls /UCHC/PublicShare/jules/paired_end_fastas/
+<strong>I10-RPE1_S3_L001_R1_001.fastq.gz   I12-RPE3_S11_L003_R1_001.fastq.gz  I3-RE-12_S9_L001_R1_001.fastq.gz	 I5-shD-2_S10_L003_R1_001.fastq.gz  I8-miC-1_S1_L001_R1_001.fastq.gz
 I10-RPE1_S3_L001_R2_001.fastq.gz   I12-RPE3_S11_L003_R2_001.fastq.gz  I3-RE-12_S9_L001_R2_001.fastq.gz	 I5-shD-2_S10_L003_R2_001.fastq.gz  I8-miC-1_S1_L001_R2_001.fastq.gz
 I10-RPE1_S3_L002_R1_001.fastq.gz   I12-RPE3_S11_L004_R1_001.fastq.gz  I3-RE-12_S9_L002_R1_001.fastq.gz	 I5-shD-2_S10_L004_R1_001.fastq.gz  I8-miC-1_S1_L002_R1_001.fastq.gz
 I10-RPE1_S3_L002_R2_001.fastq.gz   I12-RPE3_S11_L004_R2_001.fastq.gz  I3-RE-12_S9_L002_R2_001.fastq.gz	 I5-shD-2_S10_L004_R2_001.fastq.gz  I8-miC-1_S1_L002_R2_001.fastq.gz
@@ -81,7 +82,7 @@ I11-RPE2_S8_L004_R2_001.fastq.gz   I2-RE-10_S7_L002_R2_001.fastq.gz   I4-shA-5_S
 I12-RPE3_S11_L001_R1_001.fastq.gz  I2-RE-10_S7_L003_R1_001.fastq.gz   I5-shD-2_S10_L001_R1_001.fastq.gz  I7-miA-1_S5_L003_R1_001.fastq.gz
 I12-RPE3_S11_L001_R2_001.fastq.gz  I2-RE-10_S7_L003_R2_001.fastq.gz   I5-shD-2_S10_L001_R2_001.fastq.gz  I7-miA-1_S5_L003_R2_001.fastq.gz
 I12-RPE3_S11_L002_R1_001.fastq.gz  I2-RE-10_S7_L004_R1_001.fastq.gz   I5-shD-2_S10_L002_R1_001.fastq.gz  I7-miA-1_S5_L004_R1_001.fastq.gz
-I12-RPE3_S11_L002_R2_001.fastq.gz  I2-RE-10_S7_L004_R2_001.fastq.gz   I5-shD-2_S10_L002_R2_001.fastq.gz  I7-miA-1_S5_L004_R2_001.fastq.gz
+I12-RPE3_S11_L002_R2_001.fastq.gz  I2-RE-10_S7_L004_R2_001.fastq.gz   I5-shD-2_S10_L002_R2_001.fastq.gz  I7-miA-1_S5_L004_R2_001.fastq.gz</strong>
 </pre>
 
 Of each of the four cell types in the total RNA libraries there are three biological replicates. Because the samples were sequenced with `NexSeq` each biological replicate has four separate `fastq` files corresponding to each lane. In total, with four cell types, each with three paired-end biological replicates across four lanes there are `96` fastq files. We verify that all 96 files are present with the following code:
@@ -90,6 +91,43 @@ ls | wc -l
 96
 </pre>
  
+The small RNA libraries are located at `/UCHC/PublicShare/jules/single_end_fastas/`. The directory looks like:
+
+<pre style="color: silver; background: black;">ls /UCHC/PublicShare/jules/single_end_fastas/
+<strong>DaudiAgo1KD_S2_L001_R1_001.fastq.gz    DaudiNoTxt_S3_L002_R1_001.fastq.gz	 I32-Hsa-LaSSB-KD_S7_L003_R1_001.fastq.gz      RE-8-TruSeq_LaKD_S3_L004_R1_001.fastq.gz
+DaudiAgo1KD_S2_L002_R1_001.fastq.gz    DaudiNoTxt_S3_L003_R1_001.fastq.gz	 I32-Hsa-LaSSB-KD_S7_L004_R1_001.fastq.gz      SNU-ago1KD_S5_L001_R1_001.fastq.gz
+DaudiAgo1KD_S2_L003_R1_001.fastq.gz    DaudiNoTxt_S3_L004_R1_001.fastq.gz	 RE-8-TruSeq_Ago1KD_S4_L001_R1_001.fastq.gz    SNU-ago1KD_S5_L002_R1_001.fastq.gz
+DaudiAgo1KD_S2_L004_R1_001.fastq.gz    I26-Hsa-DicerKD_S10_L001_R1_001.fastq.gz  RE-8-TruSeq_Ago1KD_S4_L002_R1_001.fastq.gz    SNU-ago1KD_S5_L003_R1_001.fastq.gz
+DaudiAgo2KD_S8_L001_R1_001.fastq.gz    I26-Hsa-DicerKD_S10_L002_R1_001.fastq.gz  RE-8-TruSeq_Ago1KD_S4_L003_R1_001.fastq.gz    SNU-ago1KD_S5_L004_R1_001.fastq.gz
+DaudiAgo2KD_S8_L002_R1_001.fastq.gz    I26-Hsa-DicerKD_S10_L003_R1_001.fastq.gz  RE-8-TruSeq_Ago1KD_S4_L004_R1_001.fastq.gz    SNU-ago2KD_S6_L001_R1_001.fastq.gz
+DaudiAgo2KD_S8_L003_R1_001.fastq.gz    I26-Hsa-DicerKD_S10_L004_R1_001.fastq.gz  RE-8-TruSeq_Ago2KD_S5_L001_R1_001.fastq.gz    SNU-ago2KD_S6_L002_R1_001.fastq.gz
+DaudiAgo2KD_S8_L004_R1_001.fastq.gz    I27-Hsa-DroshaKD_S9_L001_R1_001.fastq.gz  RE-8-TruSeq_Ago2KD_S5_L002_R1_001.fastq.gz    SNU-ago2KD_S6_L003_R1_001.fastq.gz
+DaudiAgo3KD_S1_L001_R1_001.fastq.gz    I27-Hsa-DroshaKD_S9_L002_R1_001.fastq.gz  RE-8-TruSeq_Ago2KD_S5_L003_R1_001.fastq.gz    SNU-ago2KD_S6_L004_R1_001.fastq.gz
+DaudiAgo3KD_S1_L002_R1_001.fastq.gz    I27-Hsa-DroshaKD_S9_L003_R1_001.fastq.gz  RE-8-TruSeq_Ago2KD_S5_L004_R1_001.fastq.gz    SNU-ago3KD_S7_L001_R1_001.fastq.gz
+DaudiAgo3KD_S1_L003_R1_001.fastq.gz    I27-Hsa-DroshaKD_S9_L004_R1_001.fastq.gz  RE-8-TruSeq_Ago3KD_S8_L001_R1_001.fastq.gz    SNU-ago3KD_S7_L002_R1_001.fastq.gz
+DaudiAgo3KD_S1_L004_R1_001.fastq.gz    I28-Hsa-Ago1KD_S6_L001_R1_001.fastq.gz	 RE-8-TruSeq_Ago3KD_S8_L002_R1_001.fastq.gz    SNU-ago3KD_S7_L003_R1_001.fastq.gz
+DaudiAgo4KD_S7_L001_R1_001.fastq.gz    I28-Hsa-Ago1KD_S6_L002_R1_001.fastq.gz	 RE-8-TruSeq_Ago3KD_S8_L003_R1_001.fastq.gz    SNU-ago3KD_S7_L004_R1_001.fastq.gz
+DaudiAgo4KD_S7_L002_R1_001.fastq.gz    I28-Hsa-Ago1KD_S6_L003_R1_001.fastq.gz	 RE-8-TruSeq_Ago3KD_S8_L004_R1_001.fastq.gz    SNU-ago4KD_S4_L001_R1_001.fastq.gz
+DaudiAgo4KD_S7_L003_R1_001.fastq.gz    I28-Hsa-Ago1KD_S6_L004_R1_001.fastq.gz	 RE-8-TruSeq_Ago4KD_S7_L001_R1_001.fastq.gz    SNU-ago4KD_S4_L002_R1_001.fastq.gz
+DaudiAgo4KD_S7_L004_R1_001.fastq.gz    I29-Hsa-Ago2KD_S8_L001_R1_001.fastq.gz	 RE-8-TruSeq_Ago4KD_S7_L002_R1_001.fastq.gz    SNU-ago4KD_S4_L003_R1_001.fastq.gz
+DaudiDicerKD_S4_L001_R1_001.fastq.gz   I29-Hsa-Ago2KD_S8_L002_R1_001.fastq.gz	 RE-8-TruSeq_Ago4KD_S7_L003_R1_001.fastq.gz    SNU-ago4KD_S4_L004_R1_001.fastq.gz
+DaudiDicerKD_S4_L002_R1_001.fastq.gz   I29-Hsa-Ago2KD_S8_L003_R1_001.fastq.gz	 RE-8-TruSeq_Ago4KD_S7_L004_R1_001.fastq.gz    SNU-dicerKD_S8_L001_R1_001.fastq.gz
+DaudiDicerKD_S4_L003_R1_001.fastq.gz   I29-Hsa-Ago2KD_S8_L004_R1_001.fastq.gz	 RE-8-TruSeq_DicerKD_S6_L001_R1_001.fastq.gz   SNU-dicerKD_S8_L002_R1_001.fastq.gz
+DaudiDicerKD_S4_L004_R1_001.fastq.gz   I30-Hsa-Ago3KD_S5_L001_R1_001.fastq.gz	 RE-8-TruSeq_DicerKD_S6_L002_R1_001.fastq.gz   SNU-dicerKD_S8_L003_R1_001.fastq.gz
+DaudiDroshaKD_S5_L001_R1_001.fastq.gz  I30-Hsa-Ago3KD_S5_L002_R1_001.fastq.gz	 RE-8-TruSeq_DicerKD_S6_L003_R1_001.fastq.gz   SNU-dicerKD_S8_L004_R1_001.fastq.gz
+DaudiDroshaKD_S5_L002_R1_001.fastq.gz  I30-Hsa-Ago3KD_S5_L003_R1_001.fastq.gz	 RE-8-TruSeq_DicerKD_S6_L004_R1_001.fastq.gz   SNU-droshaKD_S3_L001_R1_001.fastq.gz
+DaudiDroshaKD_S5_L003_R1_001.fastq.gz  I30-Hsa-Ago3KD_S5_L004_R1_001.fastq.gz	 RE-8-TruSeq_DroshaKD_S1_L001_R1_001.fastq.gz  SNU-droshaKD_S3_L002_R1_001.fastq.gz
+DaudiDroshaKD_S5_L004_R1_001.fastq.gz  I31-Hsa-Ago4KD_S3_L001_R1_001.fastq.gz	 RE-8-TruSeq_DroshaKD_S1_L002_R1_001.fastq.gz  SNU-droshaKD_S3_L003_R1_001.fastq.gz
+DaudiLaKD_S6_L001_R1_001.fastq.gz      I31-Hsa-Ago4KD_S3_L002_R1_001.fastq.gz	 RE-8-TruSeq_DroshaKD_S1_L004_R1_001.fastq.gz  SNU-droshaKD_S3_L004_R1_001.fastq.gz
+DaudiLaKD_S6_L002_R1_001.fastq.gz      I31-Hsa-Ago4KD_S3_L003_R1_001.fastq.gz	 RE-8-TruSeq_DroskaKD_S1_L003_R1_001.fastq.gz  SNU-laKD_S1_L001_R1_001.fastq.gz
+DaudiLaKD_S6_L003_R1_001.fastq.gz      I31-Hsa-Ago4KD_S3_L004_R1_001.fastq.gz	 RE-8-TruSeq_LaKD_S3_L001_R1_001.fastq.gz      SNU-laKD_S1_L002_R1_001.fastq.gz
+DaudiLaKD_S6_L004_R1_001.fastq.gz      I32-Hsa-LaSSB-KD_S7_L001_R1_001.fastq.gz  RE-8-TruSeq_LaKD_S3_L002_R1_001.fastq.gz      SNU-laKD_S1_L003_R1_001.fastq.gz
+DaudiNoTxt_S3_L001_R1_001.fastq.gz     I32-Hsa-LaSSB-KD_S7_L002_R1_001.fastq.gz  RE-8-TruSeq_LaKD_S3_L003_R1_001.fastq.gz      SNU-laKD_S1_L004_R1_001.fastq.gz</strong></pre>
+
+There are four cell lines, each with eight sequence libraries (each corresponding to a different treatment), with every sample across four lanes. Therefore, there should be a total of `128` fastq files. The following code was used for verification of the file number:
+
+<pre style="color: silver; background: black;">
+
 To begin, the EBV, and Spike-in fastas and gtfs were provided by Julianna. They reside at: `/UCHC/PublicShare/jules/jules_stuff`. The directory looks like:
 <pre style="color: silver; background: black;">
 EBV_NC_007605.1.fasta  ebv_spike_in.gff3  erccGenes.gtf.copy  ExiSEQ-NGS-QC-Spike-ins.fa  hg19.gtf</pre>
