@@ -15,10 +15,10 @@
  
 <h2 id="First_Point_Header">Overview and directory layout</h2>
   
-Epidemiologists have found that different populations of the world manifest different long-term phenotypes from infection from the Epstein-Barr virus. Most notably that infected Westerners most often develop mononucleosis while Easterners, particularly Eastern Asians often go on to develop various forms of cancers. The hypothesis of this experiment is that various SNPs differences between Easterners and Westerners influence cellular populations of various interfering RNAs, affecting phenotype. Furthermore, Julianna Crivello, the lead investigator of this research proposes that Western SNPs cause greater production of various interfering RNAs which limit the extent of disease while Eastern SNPs cause lower production of various interfering RNAs, increasing chance of more serious disease, i.e., cancers. A variety of cell lines were cultured for this experiment, they are:
+Epidemiologists have found that different populations of the world manifest different long-term phenotypes from infection from the Epstein-Barr virus. Most notably that infected Westerners most often develop mononucleosis while Easterners, particularly Eastern Asians often go on to develop various forms of cancers. The hypothesis of this experiment is that various SNPs differences between Easterners and Westerners influence cellular populations of various interfering RNAs, affecting phenotype. Furthermore, Julianna Crivello, the lead investigator of this research proposes that viral interfering RNAs more greatly affect gene expression of Eastern SNPs, resulting in phenotype divergence. A variety of cell lines were cultured for this experiment and sequenced with `NexSeq`, they are:
  
  
-TOTAL RNA LIBRARIES:
+TOTAL RNA LIBRARIES (paired-end):
 (RPE stands for human retinal pigmented epithelial cell lines)
 <pre style="color: silver; background: black;">
 RPE (untreated cell lines) -- Negative control for basal cell line expression
@@ -35,7 +35,7 @@ sh* vs RPE
 sh* vs mi*
 sh* vs RE</pre>
  
-SMALL RNA LIBRARIES
+SMALL RNA LIBRARIES (single end):
  
 Daudi = Burkett's Lymphona (an EBV+ cancer)<br>
 Hsa = lymphoblast cells (immortalized by the addition of EBV in lab)<br>
