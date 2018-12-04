@@ -60,7 +60,37 @@ SNU vs RE</pre>
  
 The analysis is being performed at the location `/UCHC/PublicShare/jules/`.
  
-To begin, the EBV, small RNAs, and Spike-in fastas and gtfs were provided by Julianna. They reside at: `/UCHC/PublicShare/jules/jules_stuff`. The directory looks like:
+The total RNA sequences are located at '/UCHC/PublicShare/jules/paired_end_fastas/`. The directory looks like:
+
+<pre style="color: silver; background: black;">I10-RPE1_S3_L001_R1_001.fastq.gz   I12-RPE3_S11_L003_R1_001.fastq.gz  I3-RE-12_S9_L001_R1_001.fastq.gz	 I5-shD-2_S10_L003_R1_001.fastq.gz  I8-miC-1_S1_L001_R1_001.fastq.gz
+I10-RPE1_S3_L001_R2_001.fastq.gz   I12-RPE3_S11_L003_R2_001.fastq.gz  I3-RE-12_S9_L001_R2_001.fastq.gz	 I5-shD-2_S10_L003_R2_001.fastq.gz  I8-miC-1_S1_L001_R2_001.fastq.gz
+I10-RPE1_S3_L002_R1_001.fastq.gz   I12-RPE3_S11_L004_R1_001.fastq.gz  I3-RE-12_S9_L002_R1_001.fastq.gz	 I5-shD-2_S10_L004_R1_001.fastq.gz  I8-miC-1_S1_L002_R1_001.fastq.gz
+I10-RPE1_S3_L002_R2_001.fastq.gz   I12-RPE3_S11_L004_R2_001.fastq.gz  I3-RE-12_S9_L002_R2_001.fastq.gz	 I5-shD-2_S10_L004_R2_001.fastq.gz  I8-miC-1_S1_L002_R2_001.fastq.gz
+I10-RPE1_S3_L003_R1_001.fastq.gz   I1-RE-8_S12_L001_R1_001.fastq.gz   I3-RE-12_S9_L003_R1_001.fastq.gz	 I6-shE-3_S6_L001_R1_001.fastq.gz   I8-miC-1_S1_L003_R1_001.fastq.gz
+I10-RPE1_S3_L003_R2_001.fastq.gz   I1-RE-8_S12_L001_R2_001.fastq.gz   I3-RE-12_S9_L003_R2_001.fastq.gz	 I6-shE-3_S6_L001_R2_001.fastq.gz   I8-miC-1_S1_L003_R2_001.fastq.gz
+I10-RPE1_S3_L004_R1_001.fastq.gz   I1-RE-8_S12_L002_R1_001.fastq.gz   I3-RE-12_S9_L004_R1_001.fastq.gz	 I6-shE-3_S6_L002_R1_001.fastq.gz   I8-miC-1_S1_L004_R1_001.fastq.gz
+I10-RPE1_S3_L004_R2_001.fastq.gz   I1-RE-8_S12_L002_R2_001.fastq.gz   I3-RE-12_S9_L004_R2_001.fastq.gz	 I6-shE-3_S6_L002_R2_001.fastq.gz   I8-miC-1_S1_L004_R2_001.fastq.gz
+I11-RPE2_S8_L001_R1_001.fastq.gz   I1-RE-8_S12_L003_R1_001.fastq.gz   I4-shA-5_S2_L001_R1_001.fastq.gz	 I6-shE-3_S6_L003_R1_001.fastq.gz   I9-miD-1_S4_L001_R1_001.fastq.gz
+I11-RPE2_S8_L001_R2_001.fastq.gz   I1-RE-8_S12_L003_R2_001.fastq.gz   I4-shA-5_S2_L001_R2_001.fastq.gz	 I6-shE-3_S6_L003_R2_001.fastq.gz   I9-miD-1_S4_L001_R2_001.fastq.gz
+I11-RPE2_S8_L002_R1_001.fastq.gz   I1-RE-8_S12_L004_R1_001.fastq.gz   I4-shA-5_S2_L002_R1_001.fastq.gz	 I6-shE-3_S6_L004_R1_001.fastq.gz   I9-miD-1_S4_L002_R1_001.fastq.gz
+I11-RPE2_S8_L002_R2_001.fastq.gz   I1-RE-8_S12_L004_R2_001.fastq.gz   I4-shA-5_S2_L002_R2_001.fastq.gz	 I6-shE-3_S6_L004_R2_001.fastq.gz   I9-miD-1_S4_L002_R2_001.fastq.gz
+I11-RPE2_S8_L003_R1_001.fastq.gz   I2-RE-10_S7_L001_R1_001.fastq.gz   I4-shA-5_S2_L003_R1_001.fastq.gz	 I7-miA-1_S5_L001_R1_001.fastq.gz   I9-miD-1_S4_L003_R1_001.fastq.gz
+I11-RPE2_S8_L003_R2_001.fastq.gz   I2-RE-10_S7_L001_R2_001.fastq.gz   I4-shA-5_S2_L003_R2_001.fastq.gz	 I7-miA-1_S5_L001_R2_001.fastq.gz   I9-miD-1_S4_L003_R2_001.fastq.gz
+I11-RPE2_S8_L004_R1_001.fastq.gz   I2-RE-10_S7_L002_R1_001.fastq.gz   I4-shA-5_S2_L004_R1_001.fastq.gz	 I7-miA-1_S5_L002_R1_001.fastq.gz   I9-miD-1_S4_L004_R1_001.fastq.gz
+I11-RPE2_S8_L004_R2_001.fastq.gz   I2-RE-10_S7_L002_R2_001.fastq.gz   I4-shA-5_S2_L004_R2_001.fastq.gz	 I7-miA-1_S5_L002_R2_001.fastq.gz   I9-miD-1_S4_L004_R2_001.fastq.gz
+I12-RPE3_S11_L001_R1_001.fastq.gz  I2-RE-10_S7_L003_R1_001.fastq.gz   I5-shD-2_S10_L001_R1_001.fastq.gz  I7-miA-1_S5_L003_R1_001.fastq.gz
+I12-RPE3_S11_L001_R2_001.fastq.gz  I2-RE-10_S7_L003_R2_001.fastq.gz   I5-shD-2_S10_L001_R2_001.fastq.gz  I7-miA-1_S5_L003_R2_001.fastq.gz
+I12-RPE3_S11_L002_R1_001.fastq.gz  I2-RE-10_S7_L004_R1_001.fastq.gz   I5-shD-2_S10_L002_R1_001.fastq.gz  I7-miA-1_S5_L004_R1_001.fastq.gz
+I12-RPE3_S11_L002_R2_001.fastq.gz  I2-RE-10_S7_L004_R2_001.fastq.gz   I5-shD-2_S10_L002_R2_001.fastq.gz  I7-miA-1_S5_L004_R2_001.fastq.gz
+</pre>
+
+Of each of the four cell types in the total RNA libraries there are three biological replicates. Because the samples were sequenced with `NexSeq` each biological replicate has four separate `fastq` files corresponding to each lane. In total, with four cell types, each with three paired-end biological replicates across four lanes there are `96` fastq files. We verify that all 96 files are present with the following code:
+<pre style="color: silver; background: black;">
+ls | wc -l
+96
+</pre>
+ 
+To begin, the EBV, and Spike-in fastas and gtfs were provided by Julianna. They reside at: `/UCHC/PublicShare/jules/jules_stuff`. The directory looks like:
 <pre style="color: silver; background: black;">
 EBV_NC_007605.1.fasta  ebv_spike_in.gff3  erccGenes.gtf.copy  ExiSEQ-NGS-QC-Spike-ins.fa  hg19.gtf</pre>
  
