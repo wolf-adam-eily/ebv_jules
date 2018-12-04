@@ -136,7 +136,7 @@ EBV_NC_007605.1.fasta  ebv_spike_in.gff3  erccGenes.gtf.copy  ExiSEQ-NGS-QC-Spik
  
 Where `hg19.gtf` was copied from `/isg/shared/databases/alignerIndex/animal/hg19_ucsc/hg19.gtf`. Because `hg19.gtf` is a `gtf` and our EBV/Spike-In feature table is `gff3` we need to amend the `gtf.
  
-<pre style="color: silver; background: black;"> head ebv_spike_in.gff3 <strong>
+<pre style="color: silver; background: black;">head ebv_spike_in.gff3 <strong>
 NC_007605.1	.	miRNA_primary_transcript	41471	41536	.	+	.	ID=MI0001064;Alias=MI0001064;Name=ebv-mir-BHRF1-1
 NC_007605.1	.	miRNA	41474	41495	.	+	.	ID=MIMAT0000995;Alias=MIMAT0000995;Name=ebv-miR-BHRF1-1;Derives_from=MI0001064
 NC_007605.1	.	miRNA_primary_transcript	42848	42912	.	+	.	ID=MI0001065;Alias=MI0001065;Name=ebv-mir-BHRF1-2
@@ -149,7 +149,7 @@ NC_007605.1	.	miRNA	7100	7121	.	.	.	Name=ebv-mir-EBER2
 NC_007605.1	.	miRNA_primary_transcript	139076	139154	.	+	.	ID=MI0003725;Alias=MI0003725;Name=ebv-mir-BART3   </strong>
 
 head hg19.gtf
-chr1	hg19_knownGene	exon	11874	12227	0.000000	+	.	gene_id "uc001aaa.3"; transcript_id "uc001aaa.3"; 
+<strong>chr1	hg19_knownGene	exon	11874	12227	0.000000	+	.	gene_id "uc001aaa.3"; transcript_id "uc001aaa.3"; 
 chr1	hg19_knownGene	exon	12613	12721	0.000000	+	.	gene_id "uc001aaa.3"; transcript_id "uc001aaa.3"; 
 chr1	hg19_knownGene	exon	13221	14409	0.000000	+	.	gene_id "uc001aaa.3"; transcript_id "uc001aaa.3"; 
 chr1	hg19_knownGene	exon	11874	12227	0.000000	+	.	gene_id "uc010nxr.1"; transcript_id "uc010nxr.1"; 
@@ -159,7 +159,7 @@ chr1	hg19_knownGene	start_codon	12190	12192	0.000000	+	.	gene_id "uc010nxq.1"; t
 chr1	hg19_knownGene	CDS	12190	12227	0.000000	+	0	gene_id "uc010nxq.1"; transcript_id "uc010nxq.1"; 
 chr1	hg19_knownGene	exon	11874	12227	0.000000	+	.	gene_id "uc010nxq.1"; transcript_id "uc010nxq.1"; 
 chr1	hg19_knownGene	CDS	12595	12721	0.000000	+	1	gene_id "uc010nxq.1"; transcript_id "uc010nxq.1"; 
-</pre>
+</strong></pre>
 
 We now change the `gtf` with the following codes:
 
@@ -180,7 +180,7 @@ chr1	hg19_knownGene	CDS	12190	12227	0.000000	+	0	ID=uc010nxq.1;Name=uc010nxq.1
 chr1	hg19_knownGene	exon	11874	12227	0.000000	+	.	ID=uc010nxq.1;Name=uc010nxq.1
 chr1	hg19_knownGene	CDS	12595	12721	0.000000	+	1	ID=uc010nxq.1;Name=uc010nxq.1</strong></pre>
 
-We need to make sure that none of our chromosomes across organisms (semi-organismic) have the same name:
+We need to make sure that none of our chromosomes across organisms have the same name:
 <pre style="color: silver; background: black;">
 wc -l hg19.gff3 
 <strong>1461416 hg19.gff3</strong>
@@ -215,8 +215,6 @@ awk 'NR==FNR{array[$1];next}!($1 in array){print $1}' unique_identifiers unique_
 <strong>NO_OUTPUT</strong></pre>
 
 Great. Our `gff3` and `fasta` match.
-
-The sampled sequences were also provided by Julianna. The paired-end sequences are located at `/UCHC/PublicShare/jules/paired_end_fastas/` and the single-end sequences are located at `/UCHC/PublicShare/jules/single_end_fastas`.
 
 <h2 id="Third_Point_eader">Quality control using sickle</h2>
 <h2 id="combining">Concatenating mulitple runs per sample correctly</h2>
