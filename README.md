@@ -124,10 +124,10 @@ DaudiLaKD_S6_L003_R1_001.fastq.gz      I31-Hsa-Ago4KD_S3_L004_R1_001.fastq.gz	 R
 DaudiLaKD_S6_L004_R1_001.fastq.gz      I32-Hsa-LaSSB-KD_S7_L001_R1_001.fastq.gz  RE-8-TruSeq_LaKD_S3_L002_R1_001.fastq.gz      SNU-laKD_S1_L003_R1_001.fastq.gz
 DaudiNoTxt_S3_L001_R1_001.fastq.gz     I32-Hsa-LaSSB-KD_S7_L002_R1_001.fastq.gz  RE-8-TruSeq_LaKD_S3_L003_R1_001.fastq.gz      SNU-laKD_S1_L004_R1_001.fastq.gz</strong></pre>
 
-There are four cell lines, each with eight sequence libraries (each corresponding to a different treatment), with every sample across four lanes. Therefore, there should be a total of `128` fastq files. The following code was used for verification of the file number:
+There are three cell lines, each with eight sequence libraries (each corresponding to a different treatment), with every sample across four lanes, and additionally there is one cell line with 8 sequence libraries with one library in a single lane Therefore, there should be a total of `125` fastq files. The following code was used for verification of the file number:
 
 <pre style="color: silver; background: black;">ls | wc -l
-<strong>128</strong>
+<strong>125</strong>
 </pre>
 
 To begin, the EBV, and Spike-in fastas and gtfs were provided by Julianna. They reside at: `/UCHC/PublicShare/jules/jules_stuff`. The directory looks like:
@@ -268,9 +268,28 @@ I9-miD-1_S4_L001_R2_001.fastq.gz   I9-miD-1_S4_L002_R2_001.fastq.gz   I9-miD-1_S
 
 </strong></pre>
 
-The output from the `echo` command of the concatenation was saved into an interleaved file at `/UCHC/PublicShare/jules/combo_check/interleaved_reads` and the file-names from the concatenated reads at `/UCHC/PublicShare/combined_paired_end_fastas` were saved in a text file at `/UCHC/PublicShare/combo_check/combined_paired_end_fastas_list`. The concatenation was verified to be correct with the following commands:
+The output from the `echo` command of the concatenation was saved into an interleaved file at `/UCHC/PublicShare/jules/combo_check/interleaved_paired_end` and the file-names from the concatenated reads at `/UCHC/PublicShare/combined_paired_end_fastas` were saved in a text file at `/UCHC/PublicShare/combo_check/combined_paired_end_fastas_list`. The concatenation was verified to be correct with the following commands:
 
-<pre style="color: silver; background: black;">cp interleaved_reads ../paired_end_fastas
+<pre style="color: silver; background: black;">
+cat combined_paired_end_fasta_list | xargs -Ivar bash -c 'grep $(basename var .fastq) interleaved_paired_end >> paired_end_in_common'
+head paired_end_in_common
+<strong> I10-RPE1_S3_L001_R1_001.fastq.gz    I10-RPE1_S3_L002_R1_001.fastq.gz    I10-RPE1_S3_L003_R1_001.fastq.gz    I10-RPE1_S3_L004_R1_001.fastq.gz
+ I10-RPE1_S3_L001_R2_001.fastq.gz    I10-RPE1_S3_L002_R2_001.fastq.gz    I10-RPE1_S3_L003_R2_001.fastq.gz    I10-RPE1_S3_L004_R2_001.fastq.gz</strong>
+
+head interleaved_paired_end
+<strong> I10-RPE1_S3_L001_R1_001.fastq.gz    I10-RPE1_S3_L002_R1_001.fastq.gz    I10-RPE1_S3_L003_R1_001.fastq.gz    I10-RPE1_S3_L004_R1_001.fastq.gz
+ I10-RPE1_S3_L001_R2_001.fastq.gz    I10-RPE1_S3_L002_R2_001.fastq.gz    I10-RPE1_S3_L003_R2_001.fastq.gz    I10-RPE1_S3_L004_R2_001.fastq.gz</strong>
+
+grep -vFf interleaved_paired_end paired_end_in_common
+<strong>NO_OUTPUT</strong>
+
+grep -vFf interleaved_paired_end paired_end_in_common
+<strong>NO_OUTPUT</strong>
+
+grep -vFf paired_end_in_common interleaved_paired_end
+<strong>NO_OUTPUT</strong>
+
+cp interleaved_paired_end ../paired_end_fastas
 cat interleaved_reads | xargs -Ivar bash -c 'cat var | wc -l >> line_count' head 
 <strong>9019165
 9128697
@@ -321,6 +340,8 @@ DaudiDicerKD_S4_L001_R1_001.fastq.gz          DaudiDicerKD_S4_L002_R1_001.fastq.
 DaudiDroshaKD_S5_L001_R1_001.fastq.gz         DaudiDroshaKD_S5_L002_R1_001.fastq.gz         DaudiDroshaKD_S5_L003_R1_001.fastq.gz         DaudiDroshaKD_S5_L004_R1_001.fastq.gz
 DaudiLaKD_S6_L001_R1_001.fastq.gz             DaudiLaKD_S6_L002_R1_001.fastq.gz             DaudiLaKD_S6_L003_R1_001.fastq.gz             DaudiLaKD_S6_L004_R1_001.fastq.gz
 DaudiNoTxt_S3_L001_R1_001.fastq.gz            DaudiNoTxt_S3_L002_R1_001.fastq.gz            DaudiNoTxt_S3_L003_R1_001.fastq.gz            DaudiNoTxt_S3_L004_R1_001.fastq.gz
+I25-Hsa-noTXT_S1_L001_R1_001.fastq            I25-Hsa-noTXT_S1_L002_R1_001.fastq            I25-Hsa-noTXT_S1_L003_R1_001.fastq            I25-Hsa-noTXT_S1_L004_R1_001.fastq
+I25-RE-8NoTxt_UCHC_S7_L001_R1_001.fastq       I25-RE-8NoTxt_UCHC_S7_L002_R1_001.fastq       I25-RE-8NoTxt_UCHC_S7_L003_R1_001.fastq	  I25-RE-8NoTxt_UCHC_S7_L004_R1_001.fastq
 I26-Hsa-DicerKD_S10_L001_R1_001.fastq.gz      I26-Hsa-DicerKD_S10_L002_R1_001.fastq.gz      I26-Hsa-DicerKD_S10_L003_R1_001.fastq.gz	  I26-Hsa-DicerKD_S10_L004_R1_001.fastq.gz
 I27-Hsa-DroshaKD_S9_L001_R1_001.fastq.gz      I27-Hsa-DroshaKD_S9_L002_R1_001.fastq.gz      I27-Hsa-DroshaKD_S9_L003_R1_001.fastq.gz	  I27-Hsa-DroshaKD_S9_L004_R1_001.fastq.gz
 I28-Hsa-Ago1KD_S6_L001_R1_001.fastq.gz        I28-Hsa-Ago1KD_S6_L002_R1_001.fastq.gz        I28-Hsa-Ago1KD_S6_L003_R1_001.fastq.gz        I28-Hsa-Ago1KD_S6_L004_R1_001.fastq.gz
@@ -341,34 +362,55 @@ SNU-ago3KD_S7_L001_R1_001.fastq.gz            SNU-ago3KD_S7_L002_R1_001.fastq.gz
 SNU-ago4KD_S4_L001_R1_001.fastq.gz            SNU-ago4KD_S4_L002_R1_001.fastq.gz            SNU-ago4KD_S4_L003_R1_001.fastq.gz            SNU-ago4KD_S4_L004_R1_001.fastq.gz
 SNU-dicerKD_S8_L001_R1_001.fastq.gz           SNU-dicerKD_S8_L002_R1_001.fastq.gz           SNU-dicerKD_S8_L003_R1_001.fastq.gz           SNU-dicerKD_S8_L004_R1_001.fastq.gz
 SNU-droshaKD_S3_L001_R1_001.fastq.gz          SNU-droshaKD_S3_L002_R1_001.fastq.gz          SNU-droshaKD_S3_L003_R1_001.fastq.gz          SNU-droshaKD_S3_L004_R1_001.fastq.gz
-
+SNU-laKD_S1_L001_R1_001.fastq.gz              SNU-laKD_S1_L002_R1_001.fastq.gz              SNU-laKD_S1_L003_R1_001.fastq.gz              SNU-laKD_S1_L004_R1_001.fastq.gz
 </strong></pre>
 
-We see the fastas were combined appropriately. But to be sure, let's check. We save the output above in `/UCHC/PublicShare/jules/combo_check/` as `paired_end_r1`, `paired_end_r2`, `singles`, respectively. We first see if we are missing any files in our combined directories:
+The output from the `echo` command was saved at `/UCHC/PublicShare/jules/combo_check/interleaved_singles`. Let's check that the fastas were appropriately concatenated:
+
 <pre style="color: silver; background: black;">cd combo_check
-ls ../combined_paired_end_fastas >> combined_paired_end_list
-ls ../combined_single_end_fastas >> combined_single_end_list
-paste -d "\n" paired_end_r1 paired_end_r2 >> interleaved_paired_end
+ls ../combined_single_end_fastas/ >> combined_single_end_fasta_list
+wc -l combined_single_end_fasta_list
+<strong>32</strong>
+wc -l interleaved_singles
+<strong>32</strong>
 
-cat combined_paired_end_list | xargs -Ivar grep $(basename var .fastq) interleaved_paired_end >> paired_end_in_common
-head paired_end_in_common
-<strong> I10-RPE1_S3_L001_R1_001.fastq.gz    I10-RPE1_S3_L002_R1_001.fastq.gz    I10-RPE1_S3_L003_R1_001.fastq.gz    I10-RPE1_S3_L004_R1_001.fastq.gz
- I10-RPE1_S3_L001_R2_001.fastq.gz    I10-RPE1_S3_L002_R2_001.fastq.gz    I10-RPE1_S3_L003_R2_001.fastq.gz    I10-RPE1_S3_L004_R2_001.fastq.gz</strong>
+cat combined_single_end_fasta_list | xargs -Ivar bash -c 'grep $(basename var .fastq.gz) interleaved_singles >> singles_in_common'
+head singles_in_common
+<strong>DaudiAgo1KD_S2_L001_R1_001.fastq.gz           DaudiAgo1KD_S2_L002_R1_001.fastq.gz           DaudiAgo1KD_S2_L003_R1_001.fastq.gz           DaudiAgo1KD_S2_L004_R1_001.fastq.gz
+DaudiAgo2KD_S8_L001_R1_001.fastq.gz           DaudiAgo2KD_S8_L002_R1_001.fastq.gz           DaudiAgo2KD_S8_L003_R1_001.fastq.gz           DaudiAgo2KD_S8_L004_R1_001.fastq.gz
+DaudiAgo3KD_S1_L001_R1_001.fastq.gz           DaudiAgo3KD_S1_L002_R1_001.fastq.gz           DaudiAgo3KD_S1_L003_R1_001.fastq.gz           DaudiAgo3KD_S1_L004_R1_001.fastq.gz
+DaudiAgo4KD_S7_L001_R1_001.fastq.gz           DaudiAgo4KD_S7_L002_R1_001.fastq.gz           DaudiAgo4KD_S7_L003_R1_001.fastq.gz           DaudiAgo4KD_S7_L004_R1_001.fastq.gz
+DaudiDicerKD_S4_L001_R1_001.fastq.gz          DaudiDicerKD_S4_L002_R1_001.fastq.gz          DaudiDicerKD_S4_L003_R1_001.fastq.gz          DaudiDicerKD_S4_L004_R1_001.fastq.gz
+DaudiDroshaKD_S5_L001_R1_001.fastq.gz         DaudiDroshaKD_S5_L002_R1_001.fastq.gz         DaudiDroshaKD_S5_L003_R1_001.fastq.gz         DaudiDroshaKD_S5_L004_R1_001.fastq.gz
+DaudiLaKD_S6_L001_R1_001.fastq.gz             DaudiLaKD_S6_L002_R1_001.fastq.gz             DaudiLaKD_S6_L003_R1_001.fastq.gz             DaudiLaKD_S6_L004_R1_001.fastq.gz
+DaudiNoTxt_S3_L001_R1_001.fastq.gz            DaudiNoTxt_S3_L002_R1_001.fastq.gz            DaudiNoTxt_S3_L003_R1_001.fastq.gz            DaudiNoTxt_S3_L004_R1_001.fastq.gz
+I25-Hsa-noTXT_S1_L001_R1_001.fastq            I25-Hsa-noTXT_S1_L002_R1_001.fastq            I25-Hsa-noTXT_S1_L003_R1_001.fastq            I25-Hsa-noTXT_S1_L004_R1_001.fastq
+I25-RE-8NoTxt_UCHC_S7_L001_R1_001.fastq       I25-RE-8NoTxt_UCHC_S7_L002_R1_001.fastq       I25-RE-8NoTxt_UCHC_S7_L003_R1_001.fastq       I25-RE-8NoTxt_UCHC_S7_L004_R1_001.fastq
+</strong>
 
-head interleaved_paired_end
-<strong> I10-RPE1_S3_L001_R1_001.fastq.gz    I10-RPE1_S3_L002_R1_001.fastq.gz    I10-RPE1_S3_L003_R1_001.fastq.gz    I10-RPE1_S3_L004_R1_001.fastq.gz
- I10-RPE1_S3_L001_R2_001.fastq.gz    I10-RPE1_S3_L002_R2_001.fastq.gz    I10-RPE1_S3_L003_R2_001.fastq.gz    I10-RPE1_S3_L004_R2_001.fastq.gz</strong>
+head interleaved_singles
+<strong>DaudiAgo1KD_S2_L001_R1_001.fastq.gz           DaudiAgo1KD_S2_L002_R1_001.fastq.gz           DaudiAgo1KD_S2_L003_R1_001.fastq.gz           DaudiAgo1KD_S2_L004_R1_001.fastq.gz
+DaudiAgo2KD_S8_L001_R1_001.fastq.gz           DaudiAgo2KD_S8_L002_R1_001.fastq.gz           DaudiAgo2KD_S8_L003_R1_001.fastq.gz           DaudiAgo2KD_S8_L004_R1_001.fastq.gz
+DaudiAgo3KD_S1_L001_R1_001.fastq.gz           DaudiAgo3KD_S1_L002_R1_001.fastq.gz           DaudiAgo3KD_S1_L003_R1_001.fastq.gz           DaudiAgo3KD_S1_L004_R1_001.fastq.gz
+DaudiAgo4KD_S7_L001_R1_001.fastq.gz           DaudiAgo4KD_S7_L002_R1_001.fastq.gz           DaudiAgo4KD_S7_L003_R1_001.fastq.gz           DaudiAgo4KD_S7_L004_R1_001.fastq.gz
+DaudiDicerKD_S4_L001_R1_001.fastq.gz          DaudiDicerKD_S4_L002_R1_001.fastq.gz          DaudiDicerKD_S4_L003_R1_001.fastq.gz          DaudiDicerKD_S4_L004_R1_001.fastq.gz
+DaudiDroshaKD_S5_L001_R1_001.fastq.gz         DaudiDroshaKD_S5_L002_R1_001.fastq.gz         DaudiDroshaKD_S5_L003_R1_001.fastq.gz         DaudiDroshaKD_S5_L004_R1_001.fastq.gz
+DaudiLaKD_S6_L001_R1_001.fastq.gz             DaudiLaKD_S6_L002_R1_001.fastq.gz             DaudiLaKD_S6_L003_R1_001.fastq.gz             DaudiLaKD_S6_L004_R1_001.fastq.gz
+DaudiNoTxt_S3_L001_R1_001.fastq.gz            DaudiNoTxt_S3_L002_R1_001.fastq.gz            DaudiNoTxt_S3_L003_R1_001.fastq.gz            DaudiNoTxt_S3_L004_R1_001.fastq.gz
+I25-Hsa-noTXT_S1_L001_R1_001.fastq            I25-Hsa-noTXT_S1_L002_R1_001.fastq            I25-Hsa-noTXT_S1_L003_R1_001.fastq            I25-Hsa-noTXT_S1_L004_R1_001.fastq
+I25-RE-8NoTxt_UCHC_S7_L001_R1_001.fastq       I25-RE-8NoTxt_UCHC_S7_L002_R1_001.fastq       I25-RE-8NoTxt_UCHC_S7_L003_R1_001.fastq       I25-RE-8NoTxt_UCHC_S7_L004_R1_001.fastq
+</strong>
 
-grep -vFf interleaved_paired_end paired_end_in_common
+grep -vFf interleaved_singles singles_in_common
 <strong>NO_OUTPUT</strong>
 
-grep -vFf interleaved_paired_end paired_end_in_common
+grep -vFf singles_in_common interleaved_singles
 <strong>NO_OUTPUT</strong>
 
-grep -vFf paired_end_in_common interleaved_paired_end
-<strong>NO_OUTPUT</strong>
-
-
+cp interleaved_singles ../single_end_fastas/
+cd ../single_end_fastas/
+cat interleaved_singles | xargs -Ivar bash -c 'cat var | wc -l >> line_counts'
+head line_counls
 
 We are now ready to trim our data.
 <h2 id="trimming">Trimming reads with sickle</h2>
