@@ -126,7 +126,9 @@ DaudiNoTxt_S3_L001_R1_001.fastq.gz     I32-Hsa-LaSSB-KD_S7_L002_R1_001.fastq.gz 
 
 There are four cell lines, each with eight sequence libraries (each corresponding to a different treatment), with every sample across four lanes. Therefore, there should be a total of `128` fastq files. The following code was used for verification of the file number:
 
-<pre style="color: silver; background: black;">
+<pre style="color: silver; background: black;">ls | wc -l
+<strong>128</strong>
+</pre>
 
 To begin, the EBV, and Spike-in fastas and gtfs were provided by Julianna. They reside at: `/UCHC/PublicShare/jules/jules_stuff`. The directory looks like:
 <pre style="color: silver; background: black;">
