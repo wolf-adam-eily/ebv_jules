@@ -268,6 +268,41 @@ I9-miD-1_S4_L001_R2_001.fastq.gz   I9-miD-1_S4_L002_R2_001.fastq.gz   I9-miD-1_S
 
 </strong></pre>
 
+The output from the `echo` command of the concatenation was saved into an interleaved file at `/UCHC/PublicShare/jules/combo_check/interleaved_reads` and the file-names from the concatenated reads at `/UCHC/PublicShare/combined_paired_end_fastas` were saved in a text file at `/UCHC/PublicShare/combo_check/combined_paired_end_fastas_list`. The concatenation was verified to be correct with the following commands:
+
+<pre style="color: silver; background: black;">cp interleaved_reads ../paired_end_fastas
+cat interleaved_reads | xargs -Ivar bash -c 'cat var | wc -l >> line_count' head 
+<strong>9019165
+9128697
+7204533
+7697677
+6592878
+6632202
+5603744
+5628887
+6571419
+6660665
+</strong>
+
+cp ../combo_check/combined_paired_end_fastas_list
+cd ../combined_paired_end_fastas/
+cat combined_paired_end_fastas_list | xargs -Ivar bash -c 'cat var | wc -l >> combined_line_count'
+head combined_line_count
+<strong>9019165
+9128697
+7204533
+7697677
+6592878
+6632202
+5603744
+5628887
+6571419
+6660665
+</strong>
+
+diff combined_line_count ../paired_end_fastas/line_count | echo "Line counts match"
+<strong>Line counts match</strong>
+
 We see that thesee files have been processed correctly. Now for the single end fastas:
 <pre style="color: silver; background: black;">cd single_end_fastas
 array=( $(ls .) )
