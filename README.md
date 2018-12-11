@@ -320,7 +320,7 @@ head combined_line_count
 </strong>
 
 diff combined_line_count ../paired_end_fastas/line_count | echo "Line counts match"
-<strong>Line counts match</strong>
+<strong>Line counts match</strong></pre>
 
 We see that thesee files have been processed correctly. Now for the single end fastas:
 <pre style="color: silver; background: black;">cd single_end_fastas
