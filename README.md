@@ -410,13 +410,16 @@ grep -vFf singles_in_common interleaved_singles
 cp interleaved_singles ../single_end_fastas/
 cd ../single_end_fastas/
 cat interleaved_singles | xargs -Ivar bash -c 'cat var | wc -l >> line_counts'
-head line_counls
+head line_counts
+
+FINISH HERE</pre>
 
 We are now ready to trim our data.
 <h2 id="trimming">Trimming reads with sickle</h2>
 
 
 The paired-end reads were trimmed with the following code:
+
 <pre style="color: silver; background: black;">
 module load sickle
 
